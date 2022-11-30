@@ -6,13 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-[#fdfdfd];
-    @apply font-['Poppins'];
-    @apply text-sm;
-    @apply md:text-base;
-    @apply text-gray-800;
-    @apply leading-loose;
-    @apply cursor-default;
+    @apply bg-[#fdfdfd] font-['Poppins'] text-sm md:text-base text-gray-800 leading-loose cursor-default;
   }
 
   ul {
@@ -23,28 +17,12 @@
     @apply px-4;
   }
 
-  h1 {
-    @apply text-[3.5rem];
-  }
-
-  h2 {
-    @apply text-4xl;
-  }
-
   a, a:active, a:visited {
-    @apply transition-all ease-in;
-    @apply duration-300;
+    @apply transition-all ease-in duration-300;
   }
 
   button {
-    @apply transition-all ease-in;
-    @apply duration-300;
-    @apply text-white;
-    @apply font-medium;
-    @apply bg-gradient-to-r from-blue-500 to-teal-400;
-    @apply rounded-md;
-    @apply py-3;
-    @apply px-6;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-500 to-teal-400 rounded-md py-3 px-6;
   }
 
   button:hover {
@@ -52,33 +30,25 @@
   }
 
   input {
-    @apply py-2;
-    @apply px-3;
-    @apply rounded-md;
+    @apply py-2 px-3 bg-transparent text-lg rounded-md;
   }
 }
 
-.mobile-menu {
-  @apply w-full;
-  @apply absolute;
-  @apply top-[-100vh];
-  @apply left-0;
-  @apply flex;
-  @apply flex-col;
-  @apply justify-between;
-  @apply bg-[#f8f8f8de];
-  @apply transition-all ease-in-out;
-  @apply duration-700;
-}
+@layer components {
+  /* NAVBAR COMPONENT */
+  .mobile-menu {
+    @apply w-full absolute top-[-100vh] left-0 flex flex-col justify-between bg-[#f8f8f8de] transition-all ease-in-out duration-700;
+  }
 
-.mobile-menu.active {
-  @apply top-[80px];
-}
+  .mobile-menu.active {
+    @apply top-[80px];
+  }
 
-.social-icons .icon:hover {
-  @apply text-teal-400;
-  @apply transition-all ease-in;
-  @apply duration-100;
-  @apply scale-110;
-  @apply cursor-pointer;
+  .mobile-menu li {
+    @apply py-5 px-4 border-b border-gray-400;
+  }
+
+  .social-icons .icon:hover {
+    @apply text-teal-400 transition-all ease-in duration-100 scale-110 cursor-pointer;
+  }
 }

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import React, { useState } from 'react';
+import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
 			}>
 				<div className="logo">
 					<h2 className="font-semibold uppercase">
-						<a href="/" className="hover:text-teal-400">
+						<a href="/" className="text-4xl hover:text-teal-200">
 							Trip Tide
 						</a>
 					</h2>
@@ -39,9 +39,9 @@ const Navbar = () => {
 
                 <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
-						<li className="py-5 px-4 border-b border-gray-400">Home</li>
-						<li className="py-5 px-4 border-b border-gray-400">Book</li>
-						<li className="py-5 px-4 border-b border-gray-400">Contact</li>
+						<li>Home</li>
+						<li>Book</li>
+						<li>Contact</li>
 					</ul>
                     <div className="mobile-btm w-full py-4">
                         <button className="w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
