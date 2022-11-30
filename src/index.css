@@ -39,14 +39,22 @@
   button {
     @apply transition-all ease-in;
     @apply duration-300;
-    @apply bg-gradient-to-r from-teal-200 to-cyan-400;
-    @apply rounded-lg;
+    @apply text-white;
+    @apply font-medium;
+    @apply bg-gradient-to-r from-blue-500 to-teal-400;
+    @apply rounded-md;
     @apply py-3;
     @apply px-6;
   }
 
   button:hover {
-     @apply cursor-pointer;
+    @apply cursor-pointer;
+  }
+
+  input {
+    @apply py-2;
+    @apply px-3;
+    @apply rounded-md;
   }
 }
 
@@ -68,8 +76,9 @@
 }
 
 .social-icons .icon:hover {
+  @apply text-teal-400;
   @apply transition-all ease-in;
   @apply duration-100;
-  @apply scale-125;
+  @apply scale-110;
   @apply cursor-pointer;
 }
