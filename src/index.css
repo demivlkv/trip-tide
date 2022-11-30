@@ -8,7 +8,6 @@
   body {
     @apply bg-[#fdfdfd];
     @apply font-['Poppins'];
-    @apply font-light;
     @apply text-sm;
     @apply md:text-base;
     @apply text-gray-800;
@@ -18,6 +17,10 @@
 
   ul {
     @apply list-none;
+  }
+
+  li {
+    @apply px-4;
   }
 
   h1 {
@@ -36,9 +39,7 @@
   button {
     @apply transition-all ease-in;
     @apply duration-300;
-    @apply bg-gradient-to-r from-teal-400 to-cyan-500;
-    @apply border;
-    @apply border-cyan-500;
+    @apply bg-gradient-to-r from-teal-200 to-cyan-400;
     @apply rounded-lg;
     @apply py-3;
     @apply px-6;
@@ -47,4 +48,10 @@
   button:hover {
      @apply cursor-pointer;
   }
+}
+
+.social-icons .icon:hover {
+  @apply transition-all ease-in;
+  @apply duration-100;
+  @apply scale-125;
 }
