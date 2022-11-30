@@ -2,16 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  body {
+    @apply bg-[#fdfdfd];
+    @apply font-['Poppins'];
+    @apply font-light;
+    @apply text-sm;
+    @apply md:text-base;
+    @apply text-gray-800;
+    @apply leading-loose;
+    @apply cursor-default;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  h1 {
+    @apply text-[3.5rem];
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  a, a:active, a:visited {
+    @apply transition-all ease-in;
+    @apply duration-300;
+  }
+
+  button {
+    @apply transition-all ease-in;
+    @apply duration-300;
+    @apply bg-gradient-to-r from-teal-400 to-cyan-500;
+    @apply border;
+    @apply border-cyan-500;
+    @apply rounded-lg;
+    @apply py-3;
+    @apply px-6;
+  }
+
+  button:hover {
+     @apply cursor-pointer;
+  }
 }
