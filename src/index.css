@@ -50,8 +50,26 @@
   }
 }
 
+.mobile-menu {
+  @apply w-full;
+  @apply absolute;
+  @apply top-[-100vh];
+  @apply left-0;
+  @apply flex;
+  @apply flex-col;
+  @apply justify-between;
+  @apply bg-[#f8f8f8de];
+  @apply transition-all ease-in-out;
+  @apply duration-700;
+}
+
+.mobile-menu.active {
+  @apply top-[80px];
+}
+
 .social-icons .icon:hover {
   @apply transition-all ease-in;
   @apply duration-100;
   @apply scale-125;
+  @apply cursor-pointer;
 }
