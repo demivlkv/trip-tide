@@ -1,24 +1,33 @@
 const destinations = [
     {
+        name: 'Kyoto, Japan',
+        image: '/destinations/arashiyama.png',
+        description: 'Get lost in the bamboo forests of Kyoto, Japan'
+    },
+    {
+        name: 'Mainz, Germany',
+        image: '/destinations/germany.png',
+        description: 'Collect moments in local the towns of Germany'
+    },
+    {
+        name: 'Malé, Maldives',
+        image: '/destinations/paris.png',
+        description: 'Wake up to a different world in Maldives'
+    },
+    {
         name: 'Reykjavík, Iceland',
         image: '/destinations/iceland.png',
-        imgAlt: 'Collect moments in Iceland',
-        price: '$556',
-        deal: '3 nights hotel + Round-trip flight'
+        description: 'Explore the gorgeous landscapes of Iceland'
     },
     {
         name: 'Almafi, Italy',
         image: '/destinations/almafi-coast.png',
-        imgAlt: 'Soak in the view of the Almafi Coast, Italy',
-        price: '$749',
-        deal: '3 nights hotel + Round-trip flight'
+        description: 'Soak in the view of the Almafi Coast, Italy'
     },
     {
         name: 'Paris, France',
         image: '/destinations/paris.png',
-        imgAlt: 'Escape the ordinary in the streets of Paris',
-        price: '$598',
-        deal: '3 nights hotel + Round-trip flight'
+        description: 'Escape the ordinary in the streets of Paris'
     }
 ]
 

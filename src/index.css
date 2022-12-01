@@ -34,7 +34,7 @@
   }
 
   button {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-2 px-3;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-2 px-4;
   }
 }
 
@@ -66,17 +66,26 @@
     @apply w-full h-full object-cover;
   }
 
-  /* DISCOVER COMPONENT */
-  .discover label {
+  /* BOOK COMPONENT */
+  .book label {
     @apply font-medium uppercase;
   }
 
-  .discover input[type=text],
-  .discover input[type=date] {
+  .book input[type=text],
+  .book input[type=date] {
     @apply w-full py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
   }
 
-  .discover select {
+  .book select {
     @apply w-full py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  }
+
+  /* DISCOVER COMPONENT */
+  .discover div a, .discover div a:active, .discover div a:visited {
+    @apply duration-75 text-teal-100 drop-shadow hover:border-b;
+  }
+
+  .discover .images img {
+    @apply w-full h-full object-cover;
   }
 }

@@ -23,9 +23,9 @@ const Navbar = () => {
 
 				<ul className="hidden md:flex">
 					<li>Home</li>
-					<li>Our Story</li>
-					<li>Discover</li>
 					<li>Book</li>
+					<li>Discover</li>
+					<li>Our Story</li>
 					<li>Contact</li>
 				</ul>
 
@@ -42,9 +42,9 @@ const Navbar = () => {
                 <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
 						<li>Home</li>
-						<li>Our Story</li>
-						<li>Discover</li>
 						<li>Book</li>
+						<li>Discover</li>
+						<li>Our Story</li>
 						<li>Contact</li>
 					</ul>
                     <div className="mobile-btm w-full py-4">

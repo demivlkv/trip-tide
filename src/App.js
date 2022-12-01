@@ -1,16 +1,18 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
+import Book from './components/Book';
 import Discover from './components/Discover';
+import About from './components/About';
 
 function App() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <About />
+      <Book />
       <Discover />
+      <About />
     </div>
   );
 }
