@@ -12,8 +12,8 @@ const Hero = () => {
         <div className="overlay w-full h-full bg-[#00000016] absolute top-0 left-0"></div>
 
         <div className="content w-full h-full m-auto p-4 absolute top-0 flex flex-col justify-center items-center">
-            <h1 className="mb-4 text-2xl md:text-5xl font-semibold uppercase tracking-widest">An ocean of possibilities</h1>
-            <h2 className="my-4 text-xl md:text-4xl font-light uppercase tracking-widest">The whole world awaits</h2>
+            <h1 className="text-2xl md:text-5xl">An ocean of possibilities</h1>
+            <h2 className="my-4 text-xl md:text-4xl">The whole world awaits</h2>
             <form className="max-w-[700px] w-full bg-[#ffffffcc] mt-4 p-1 flex justify-between items-center rounded-md">
                 <div>
                     <input type="text" name="search" placeholder="Search destinations" className="w-[360px] md:w-[550px] text-gray-800 focus:outline-none" />

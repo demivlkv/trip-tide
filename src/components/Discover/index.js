@@ -7,7 +7,7 @@ const Discover = () => {
 	return (
 		<div className="discover w-full h-full md:h-screen relative p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
-				<h1 className="mb-8 text-2xl md:text-4xl font-semibold uppercase tracking-widest">
+				<h1>
 					Discover dreamy destinations
 				</h1>
 
@@ -79,9 +79,11 @@ const Discover = () => {
 					</div>
 
 					{/* SEARCH DEALS */}
-					<h2 className="mb-8 text-teal-400 text-xl md:text-2xl font-light uppercase tracking-widest">
-						Don't miss these deals
-					</h2>
+                    <div className="w-full">
+                        <h2 className="mb-8 text-teal-400 text-center">
+                            Don't miss these deals
+                        </h2>
+                    </div>
 
 					<div className="images grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
 						{destinations.map((city) => (

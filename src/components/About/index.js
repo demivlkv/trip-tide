@@ -11,13 +11,13 @@ const About = () => {
 	return (
 		<div className="about w-full h-full md:h-screen p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
-				<h1 className="mb-4 text-2xl md:text-4xl text-center font-semibold uppercase tracking-widest">
+				<h1>
           			Bringing the world to you
 				</h1>
-				<p className="pt-4 text-left">
+				<p className="pt-4">
 					Trip Tide was founded in 2022 by a traveler, <em>for travelers</em>.
 				</p>
-				<p className="py-8 text-left leading-loose">
+				<p className="py-8">
 					Trip Tide is a humble, small-scale travel agency to help plan your
 					next getaway. Our core belief is that everyone should travel, and it
 					is vital that we make travel accessible to everyone.

@@ -17,6 +17,18 @@
     @apply px-4;
   }
 
+  h1 {
+    @apply mb-4 text-2xl md:text-4xl text-center font-semibold uppercase tracking-widest;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl font-light uppercase tracking-widest;
+  }
+
+  p {
+    @apply text-left leading-relaxed;
+  }
+
   a, a:active, a:visited {
     @apply transition-all ease-in duration-300;
   }
