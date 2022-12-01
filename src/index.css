@@ -59,7 +59,12 @@
     @apply font-medium uppercase;
   }
 
-  .discover input {
-    @apply py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  .discover input[type=text],
+  .discover input[type=date] {
+    @apply w-full py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  }
+
+  .discover select {
+    @apply w-full py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
   }
 }
