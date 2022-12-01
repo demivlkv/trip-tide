@@ -22,7 +22,7 @@
   }
 
   button {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-3 px-6;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-2 px-3;
   }
 }
 
@@ -50,7 +50,7 @@
   }
 
   /* ABOUT COMPONENT */
-  .images img {
+  .about .images img {
     @apply w-full h-full object-cover;
   }
 

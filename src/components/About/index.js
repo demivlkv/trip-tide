@@ -5,7 +5,7 @@ import Italy from '../../assets/images/almafi-coast.jpg';
 import Kyoto from '../../assets/images/arashiyama.jpg';
 import Germany from '../../assets/images/germany.jpg';
 import Paris from '../../assets/images/paris.jpg';
-import Mykonos from '../../assets/images/mykonos.jpg';
+import Maldives from '../../assets/images/maldives.jpg';
 
 const About = () => {
 	return (
@@ -39,8 +39,8 @@ const About = () => {
 					/>
 					<img src={Paris} alt="Escape the ordinary in the streets of Paris" />
 					<img
-						src={Mykonos}
-						alt="Wake up to a different world in Mykonos, Greece"
+						src={Maldives}
+						alt="Wake up to a different world in Maldives"
 					/>
 				</div>
 			</div>
