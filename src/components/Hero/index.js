@@ -16,7 +16,7 @@ const Hero = () => {
             <h2 className="my-4 text-xl md:text-4xl font-light uppercase tracking-widest">The whole world awaits</h2>
             <form className="max-w-[700px] w-full bg-[#ffffffcc] mt-4 p-1 flex justify-between items-center rounded-md">
                 <div>
-                    <input type="text" name="search" placeholder="Search destinations" className="w-[300px] md:w-[500px] text-gray-800 focus:outline-none" />
+                    <input type="text" name="search" placeholder="Search destinations" className="w-[360px] md:w-[550px] text-gray-800 focus:outline-none" />
                 </div>
                 <div>
                     <button><MagnifyingGlassIcon width={25} /></button>

@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-[#fdfdfd] font-['Poppins'] text-sm md:text-base text-gray-800 leading-loose cursor-default;
+    @apply bg-[#fdfdfd] font-['Poppins'] text-sm md:text-base text-gray-800;
   }
 
   ul {
@@ -50,5 +50,10 @@
 
   .social-icons .icon:hover {
     @apply text-teal-400 transition-all ease-in duration-100 scale-110 cursor-pointer;
+  }
+
+  /* DISCOVER COMPONENT */
+  .images img {
+    @apply w-full h-full object-cover;
   }
 }

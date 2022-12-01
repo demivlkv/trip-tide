@@ -23,6 +23,7 @@ const Navbar = () => {
 
 				<ul className="hidden md:flex">
 					<li>Home</li>
+					<li>Discover</li>
 					<li>Book</li>
 					<li>Contact</li>
 				</ul>
@@ -40,6 +41,7 @@ const Navbar = () => {
                 <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
 						<li>Home</li>
+						<li>Discover</li>
 						<li>Book</li>
 						<li>Contact</li>
 					</ul>
