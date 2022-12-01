@@ -9,10 +9,10 @@ import Mykonos from '../../assets/images/mykonos.jpg';
 
 const About = () => {
 	return (
-		<div className="our-story w-full h-full md:h-screen p-8">
+		<div className="about w-full h-full md:h-screen p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
 				<h1 className="mb-4 text-2xl md:text-4xl text-center font-semibold uppercase tracking-widest">
-          Bringing the world to you
+          			Bringing the world to you
 				</h1>
 				<p className="pt-4 text-left">
 					Trip Tide was founded in 2022 by a traveler, <em>for travelers</em>.

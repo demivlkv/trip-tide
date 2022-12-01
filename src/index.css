@@ -22,15 +22,7 @@
   }
 
   button {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-500 to-teal-400 rounded-md py-3 px-6;
-  }
-
-  button:hover {
-    @apply cursor-pointer;
-  }
-
-  input {
-    @apply py-2 px-3 bg-transparent text-lg rounded-md;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-3 px-6;
   }
 }
 
@@ -52,8 +44,22 @@
     @apply text-teal-400 transition-all ease-in duration-100 scale-110 cursor-pointer;
   }
 
-  /* DISCOVER COMPONENT */
+  /* HERO COMPONENT */
+  .hero input {
+    @apply py-2 px-3 bg-transparent text-lg rounded-md;
+  }
+
+  /* ABOUT COMPONENT */
   .images img {
     @apply w-full h-full object-cover;
+  }
+
+  /* DISCOVER COMPONENT */
+  .discover label {
+    @apply font-medium uppercase;
+  }
+
+  .discover input {
+    @apply py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
   }
 }
