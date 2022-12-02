@@ -87,7 +87,7 @@ const Book = () => {
 
 					<div className="images grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
 						{destinations.map((city) => (
-							<div className="max-w-sm rounded-md overflow-hidden shadow-lg">
+							<div className="max-w-sm rounded-md overflow-hidden shadow-lg hover:shadow-slate-400 transition-all ease-in duration-300">
 								<img src={city.image} alt={city.imgAlt} className="w-full" />
 								<div className="p-4">
 									<div className="flex justify-between items-center">

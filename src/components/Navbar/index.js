@@ -9,9 +9,9 @@ const Navbar = () => {
     const handleNav = () => setNav(!nav);
 
 	return (
-		<nav name="home">
+		<nav name="home" className="navbar">
 			<div className={nav ?
-				'bg-[#f8f8f8de] w-full h-[80px] absolute px-4 flex justify-between items-center transition-all ease-in-out delay-200 duration-400 z-[5]'
+				'bg-[#f8f8f8de] w-full h-[80px] absolute px-4 flex justify-between items-center transition-all ease-in-out delay-100 duration-300 z-[5]'
 				:
 				'w-full h-[80px] absolute px-4 flex justify-between items-center text-white z-[5]'
 			}>
@@ -42,10 +42,10 @@ const Navbar = () => {
 
                 <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
-						<li>Home</li>
-						<li>Book</li>
-						<li>Discover</li>
-						<li>Our Story</li>
+						<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
+						<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
+						<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
+						<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
 					</ul>
                     <div className="mobile-btm w-full py-4">
                         <button className="w-[90%] m-4 text-center uppercase tracking-widest">Search</button>

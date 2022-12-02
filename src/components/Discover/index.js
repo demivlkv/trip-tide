@@ -12,7 +12,7 @@ const Discover = () => {
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
 					{destinations.map((city) => (
-						<div className="images relative group max-w-sm rounded-md overflow-hidden shadow-lg opacity-80 hover:opacity-100 transition-all ease-in-out duration-300">
+						<div className="images relative group max-w-sm rounded-md overflow-hidden opacity-80 hover:opacity-100 transition-all ease-in-out duration-300">
                             <div className="overlay"></div>
 							<img src={city.image} alt={city.name} />
 
