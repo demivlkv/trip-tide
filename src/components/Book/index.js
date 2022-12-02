@@ -5,7 +5,7 @@ const Book = () => {
 	const destinations = Data;
 
 	return (
-		<div className="book w-full h-full md:h-screen relative p-8">
+		<div name="book" className="book w-full h-full md:h-screen relative p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
 				<h1>
 					Spend Less. Travel More.

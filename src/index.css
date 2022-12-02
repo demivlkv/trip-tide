@@ -14,7 +14,7 @@
   }
 
   li {
-    @apply px-4;
+    @apply px-4 hover:text-teal-200 cursor-pointer transition-all ease-in duration-500;
   }
 
   h1 {
@@ -40,12 +40,12 @@
 
 @layer components {
   .overlay {
-    @apply w-full h-full bg-black opacity-25 hover:opacity-0 absolute top-0 left-0 transition-all ease-in-out duration-500;
+    @apply w-full h-full bg-black opacity-25 hover:opacity-0 absolute top-0 left-0 transition-all ease-in duration-500;
   }
 
   /* NAVBAR COMPONENT */
   .mobile-menu {
-    @apply w-full absolute top-[-100vh] left-0 flex flex-col justify-between bg-[#f8f8f8de] transition-all ease-in-out duration-700;
+    @apply w-full absolute top-[-100vh] left-0 flex flex-col justify-between bg-[#f8f8f8de] transition-all ease-in duration-700;
   }
 
   .mobile-menu.active {
@@ -90,7 +90,7 @@
   }
 
   .discover .images img {
-    @apply w-full h-full object-cover transition-all ease-in-out duration-500;
+    @apply w-full h-full object-cover transition-all ease-in duration-300;
   }
 
   .discover .images:hover img {

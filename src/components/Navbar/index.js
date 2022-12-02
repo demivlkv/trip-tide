@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-scroll';
+// import icons
 import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
@@ -7,7 +9,7 @@ const Navbar = () => {
     const handleNav = () => setNav(!nav);
 
 	return (
-		<nav id="navbar">
+		<nav name="home">
 			<div className={nav ?
 				'bg-[#f8f8f8de] w-full h-[80px] absolute px-4 flex justify-between items-center transition-all ease-in-out delay-200 duration-400 z-[5]'
 				:
@@ -22,10 +24,10 @@ const Navbar = () => {
 				</div>
 
 				<ul className="hidden md:flex">
-					<li>Home</li>
-					<li>Book</li>
-					<li>Discover</li>
-					<li>Our Story</li>
+					<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
+					<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
+					<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
+					<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
