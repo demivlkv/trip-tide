@@ -39,6 +39,10 @@
 }
 
 @layer components {
+  .overlay {
+    @apply w-full h-full bg-[#0000005b] hover:bg-transparent absolute top-0 left-0 transition-all ease-in-out duration-300;
+  }
+
   /* NAVBAR COMPONENT */
   .mobile-menu {
     @apply w-full absolute top-[-100vh] left-0 flex flex-col justify-between bg-[#f8f8f8de] transition-all ease-in-out duration-700;
@@ -86,6 +90,10 @@
   }
 
   .discover .images img {
-    @apply w-full h-full object-cover;
+    @apply w-full h-full object-cover transition-all ease-in-out duration-500;
+  }
+
+  .discover .images:hover img {
+    @apply scale-125;
   }
 }

@@ -9,7 +9,7 @@ const Hero = () => {
             <source src={Video} type="video/mp4" />
         </video>
 
-        <div className="overlay w-full h-full bg-[#00000016] absolute top-0 left-0"></div>
+        <div className="overlay bg-[#00000016]"></div>
 
         <div className="content w-full h-full m-auto p-4 absolute top-0 flex flex-col justify-center items-center">
             <h1 className="text-2xl md:text-5xl">An ocean of possibilities</h1>
