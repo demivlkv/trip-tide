@@ -26,7 +26,6 @@ const Navbar = () => {
 					<li>Book</li>
 					<li>Discover</li>
 					<li>Our Story</li>
-					<li>Contact</li>
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
@@ -45,7 +44,6 @@ const Navbar = () => {
 						<li>Book</li>
 						<li>Discover</li>
 						<li>Our Story</li>
-						<li>Contact</li>
 					</ul>
                     <div className="mobile-btm w-full py-4">
                         <button className="w-[90%] m-4 text-center uppercase tracking-widest">Search</button>

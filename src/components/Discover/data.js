@@ -31,7 +31,7 @@ const destinations = [
     },
     {
         name: 'New York, New York',
-        image: 'https://images.unsplash.com/photo-1602940659805-770d1b3b9911?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80',
+        image: 'https://images.unsplash.com/photo-1585238326164-612cb4248873?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2372&q=80',
         description: 'Getaway to the city that never sleeps'
     },
     {

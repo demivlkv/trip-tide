@@ -96,9 +96,9 @@ const Book = () => {
 											{city.price}
 										</div>
 									</div>
-									<div className="flex justify-between items-center">
-										<div className="text-gray-500 text-xs">{city.deal}</div>
-										<div className="text-gray-500 text-xs">per person</div>
+									<div className="flex justify-between items-center text-gray-500 text-xs">
+										<div>{city.deal}</div>
+										<div>per person</div>
 									</div>
 									<button className="w-full mt-4">View Deal</button>
 								</div>
