@@ -11,7 +11,7 @@ const About = () => {
 					Trip Tide was founded in 2022 by a traveler, <em className="text-teal-400">for travelers</em>.
 				</p>
 				<p className="py-8">
-					Trip Tide is a humble, small-scale travel agency to help plan your
+					We are a humble, small-scale travel agency to help plan your
 					next getaway. Our core belief is that everyone should travel, and it
 					is vital that we make travel accessible to everyone.
 				</p>

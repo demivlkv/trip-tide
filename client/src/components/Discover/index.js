@@ -27,7 +27,7 @@ const Discover = () => {
 								</div>
 							</div>
                             {/* GRADIENT OVERLAY ON HOVER */}
-							<div className="flex justify-center items-center transition-all ease-in duration-300 opacity-0 bg-gradient-to-t from-transparent via-sky-800 to-opacity-20 group-hover:opacity-70 absolute top-0 left-0 h-full w-full"></div>
+							<div className="flex justify-center items-center transition-all ease-in duration-300 opacity-0 bg-gradient-to-t from-transparent via-gray-700 to-opacity-20 group-hover:opacity-60 absolute top-0 left-0 h-full w-full"></div>
 						</div>
 					))}
 				</div>

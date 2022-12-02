@@ -65,11 +65,6 @@
     @apply py-2 px-3 bg-transparent text-lg rounded-md;
   }
 
-  /* ABOUT COMPONENT */
-  .about .images img {
-    @apply w-full h-full object-cover;
-  }
-
   /* BOOK COMPONENT */
   .book label {
     @apply font-medium uppercase;
@@ -86,7 +81,7 @@
 
   /* DISCOVER COMPONENT */
   .discover div a, .discover div a:active, .discover div a:visited {
-    @apply duration-75 text-teal-100 drop-shadow hover:border-b;
+    @apply duration-75 text-teal-200 drop-shadow hover:border-b;
   }
 
   .discover .images img {
@@ -97,13 +92,22 @@
     @apply scale-125;
   }
 
+  /* ABOUT COMPONENT */
+  .about .images img {
+    @apply w-full h-full object-cover rounded;
+  }
+
   /* FOOTER COMPONENT */
   .footer .upper, .footer .lower {
     @apply w-full flex justify-between items-center;
   }
   
   .footer .social {
-    @apply w-[200px] flex justify-between text-teal-200;
+    @apply w-[200px] flex justify-between text-teal-200 cursor-pointer;
+  }
+
+  .footer .social .icon {
+    @apply hover:text-white transition-all ease-in duration-300;
   }
 
   .footer .left, .footer .right {
