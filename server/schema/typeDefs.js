@@ -65,8 +65,8 @@ const typeDefs = gql`
         addPost(postText: String!, comment_id: String!): Post
         addComment(postId: ID!, commentBody: String!): Post
         addFriend(friendId: ID!): User
-        savePlaces(input: PlaceInput!): User
-        removeBook(placeId: String!): User
+        savePlace(input: PlaceInput!): User
+        removePlace(placeId: String!): User
     }
 `;
 
