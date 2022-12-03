@@ -126,3 +126,7 @@
     @apply p-2;
   }
 }
+
+.navbar-bg {
+  @apply bg-gray-800 w-full h-[80px] absolute;
+}

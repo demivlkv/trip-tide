@@ -2,12 +2,12 @@ import React from 'react';
 
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
-    return <h3>No posts Yet</h3>;
+    return <h3 className="text-2xl font-semibold uppercase tracking-widest">No posts Yet</h3>;
   }
 
   return (
     <>
-      <h3>{title}</h3>
+      <h3 className="text-2xl font-semibold uppercase tracking-widest">{title}</h3>
       {posts &&
         posts.map(post => (
           <div key={post._id} className="card mb-3">
