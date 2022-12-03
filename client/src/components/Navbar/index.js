@@ -31,6 +31,10 @@ const Navbar = () => {
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
+				<ul className="hidden md:flex justify-center items-center">
+					<a href="/login"><li>Login</li></a>
+					<a href="/signup"><li>Signup</li></a>
+				</ul>
 					<MagnifyingGlassIcon width={27} className="mr-4" />
 					<UserCircleIcon width={30} />
 				</div>

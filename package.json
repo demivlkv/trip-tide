@@ -21,5 +21,6 @@
   "homepage": "https://github.com/demivlkv/trip-tide#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
-  }
+  },
+  "dependencies": {}
 }
