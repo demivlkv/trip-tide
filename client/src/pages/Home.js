@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
 import PostList from '../components/PostList.js';
 
-const Homme = () => {
+const Home = () => {
   // utilize useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
@@ -24,4 +24,4 @@ const Homme = () => {
   );
 };
 
-export default Homme;
+export default Home;
