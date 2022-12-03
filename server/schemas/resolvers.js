@@ -50,7 +50,7 @@ const resolvers = {
             const user = await User.create(args);
             const token = signToken(user);
 
-            return { toekn, user };
+            return { token, user };
         },
 
         login: async (parent, { email, password }) => {
@@ -60,9 +60,9 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect credentials');
             }
 
-            const password = await user.isCorrectPassword(password);
+            const correctPw = await user.isCorrectPassword(password);
 
-            if (!correctPassword) {
+            if (!correctPw) {
                 throw new AuthenticationError('Incorrect credentials');
             }
 
