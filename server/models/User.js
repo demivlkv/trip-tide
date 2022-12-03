@@ -1,6 +1,9 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// import schema from Place.js
+const placeSchema = require('./Place');
+
 const userSchema = new Schema(
 	{
 		username: {
@@ -32,18 +35,12 @@ const userSchema = new Schema(
 				ref: 'User',
 			},
 		],
-		savedPlaces: [{
-			placeId: String,
-			placeName: String,
-			description: String,
-			rating: String,
-			tags: String,
-			thumbnail_url: String
-		}]
+		savedPlaces: [placeSchema]
 	},
 	{
 		toJSON: {
 			virtuals: true,
+			getters: true
 		},
 	}
 );
@@ -61,6 +58,11 @@ userSchema.pre('save', async function (next) {
 userSchema.virtual('friendCount').get(function () {
 	return this.friends.length;
 });
+
+// GET `placeCount` with the number of saved places
+userSchema.virtual('placeCount').get(function () {
+	return this.savedPlaces.length;
+  });
 
 const User = model('User', userSchema);
 
