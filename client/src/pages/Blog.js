@@ -12,15 +12,12 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="w-full h-full md:h-screen">
-        <div className="navbar-bg"></div>
-        <div className="w-1/2 h-full flex justify-center items-center">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <PostList posts={posts} title="Turning travel passions into travel plans" />
-          )}
-        </div>
+      <div className="w-1/2 h-full flex justify-center items-center">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <PostList posts={posts} title="Turning travel passions into travel plans" />
+        )}
       </div>
     </Layout>
   );

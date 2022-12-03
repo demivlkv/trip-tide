@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_POST } from '../utils/queries';
+import Layout from '../components/Layout/Blog';
 import CommentList from '../components/CommentList';
 
 const SinglePost = () => {
@@ -19,7 +20,9 @@ const SinglePost = () => {
   }
 
   return (
-    <>
+    <Layout>
+      <div className="navbar-bg"></div>
+        <div className="w-1/2 h-full flex justify-center items-center">
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
@@ -35,7 +38,8 @@ const SinglePost = () => {
       {post.commentCount > 0 && (
         <CommentList comments={post.comments} />
       )}
-    </>
+      </div>
+    </Layout>
   )
 }
 
