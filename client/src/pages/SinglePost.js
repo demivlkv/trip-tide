@@ -21,23 +21,24 @@ const SinglePost = () => {
 
   return (
     <Layout>
-      <div className="navbar-bg"></div>
+      <div className="w-full h-full md:h-screen">
         <div className="w-1/2 h-full flex justify-center items-center">
-      <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {post.username}
-          </span>{' '}
-          post on {post.createdAt}
-        </p>
-        <div className="card-body">
-          <p>{post.postText}</p>
+          <div className="card mb-3">
+            <p className="card-header">
+              <span style={{ fontWeight: 700 }} className="text-light">
+                {post.username}
+              </span>{' '}
+              post on {post.createdAt}
+            </p>
+            <div className="card-body">
+              <p>{post.postText}</p>
+            </div>
+          </div>
+          
+          {post.commentCount > 0 && (
+            <CommentList comments={post.comments} />
+          )}
         </div>
-      </div>
-      
-      {post.commentCount > 0 && (
-        <CommentList comments={post.comments} />
-      )}
       </div>
     </Layout>
   )

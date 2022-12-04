@@ -1,11 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import { QUERY_USER } from '../utils/queries';
 import Layout from '../components/Layout/Dashboard';
 import FriendList from '../components/FriendList';
 import PostList from '../components/PostList';
-import { QUERY_USER } from '../utils/queries';
 
 const Profile = () => {
     const { username: userParam } = useParams();
@@ -22,6 +21,7 @@ const Profile = () => {
 
   return (
     <Layout>
+      <div className="w-full h-full md:h-screen">
         <div className="w-full">
             <div className="flex-row mb-3">
                 <h2 className="font-semibold uppercase">
@@ -45,6 +45,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+      </div>
     </Layout>
   );
 };

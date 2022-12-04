@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
-const DarkNavbar = () => {
+const LightNavbar = () => {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
 
@@ -13,7 +13,7 @@ const DarkNavbar = () => {
 			<div className={nav ?
 				'bg-[#f8f8f8de] w-full h-[80px] absolute px-4 flex justify-between items-center transition-all ease-in-out delay-100 duration-300 z-[5]'
 				:
-				'w-full h-[80px] absolute px-4 flex justify-between items-center z-[5]'
+				'w-full h-[80px] absolute px-4 flex justify-between items-center text-white z-[5]'
 			}>
 				<div className="logo">
 					<h2 className="font-semibold uppercase">
@@ -68,4 +68,4 @@ const DarkNavbar = () => {
 	);
 };
 
-export default DarkNavbar;
+export default LightNavbar;
