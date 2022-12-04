@@ -4,7 +4,6 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // components
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 // pages
@@ -39,7 +38,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
         <div className="pages">
           <Routes>
             <Route

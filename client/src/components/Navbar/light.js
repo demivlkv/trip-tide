@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
+import Auth from '../../utils/auth';
 // import icons
 import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
@@ -7,6 +8,11 @@ import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 const LightNavbar = () => {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
+
+	const logout = event => {
+		event.preventDefault();
+		Auth.logout();
+	};
 
 	return (
 		<nav name="home" className="navbar">
@@ -32,11 +38,18 @@ const LightNavbar = () => {
 
 				<div className="nav-icons hidden md:flex">
 				<ul className="hidden md:flex justify-center items-center">
-					<a href="/login"><li>Login</li></a>
-					<a href="/signup"><li>Signup</li></a>
+					{Auth.loggedIn() ? (
+						<>
+							<a href="/profile"><li><UserCircleIcon width={30} /></li></a>
+							<a href="/" onClick={logout}><li className="py-2 outline-offset-0 outline rounded-sm">Logout</li></a>
+						</>
+					) : (
+						<>
+							<a href="/login"><li>Login</li></a>
+							<a href="/signup"><li>Signup</li></a>
+						</>
+					)}
 				</ul>
-					<MagnifyingGlassIcon width={27} className="mr-4" />
-					<UserCircleIcon width={30} />
 				</div>
 
 				{/* HAMBURGER MENU */}

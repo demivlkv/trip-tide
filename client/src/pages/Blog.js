@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="w-full h-full md:h-screen">
+      <div className="w-full h-screen">
         <div className="w-1/2 h-full flex justify-center items-center">
           {loading ? (
             <div>Loading...</div>
