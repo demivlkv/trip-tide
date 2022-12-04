@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
 
 const Login = (props) => {
@@ -23,8 +24,8 @@ const Login = (props) => {
           const { data } = await login({
             variables: { ...formState }
           });
-      
           console.log(data);
+          Auth.login(data.login.token);
         } catch (e) {
           console.error(e);
         }
@@ -42,7 +43,6 @@ const Login = (props) => {
 						<form className="w-full" onSubmit={handleFormSubmit}>
                             <label className="block">E-mail</label>
 							<input
-								className="form-input"
 								placeholder="Your email"
 								name="email"
 								type="email"
@@ -52,7 +52,6 @@ const Login = (props) => {
 							/>
                             <label className="block">Password</label>
 							<input
-								className="form-input"
 								placeholder="******"
 								name="password"
 								type="password"
