@@ -44,6 +44,14 @@
     @apply px-4 hover:text-teal-200 cursor-pointer transition-all ease-in duration-500;
   }
 
+  .navbar li.logout {
+    @apply px-4 hover:text-gray-500 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+  }
+
+  .navbar li.logout-light {
+    @apply px-4 hover:text-gray-200 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+  }
+
   .mobile-menu {
     @apply w-full absolute top-[-100vh] left-0 flex flex-col justify-between bg-[#f8f8f8de] transition-all ease-in duration-700;
   }
@@ -134,4 +142,8 @@
 
 .signup input, .login input {
   @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+}
+
+.profile .btn {
+  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm !important;
 }

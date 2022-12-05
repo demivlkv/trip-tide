@@ -41,7 +41,7 @@ const DarkNavbar = () => {
 					{Auth.loggedIn() ? (
 						<>
 							<Link to="/profile"><li><UserCircleIcon width={30} /></li></Link>
-							<a href="/" onClick={logout}><li className="py-2 outline-offset-0 outline rounded-sm">Logout</li></a>
+							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
 						</>
 					) : (
 						<>
