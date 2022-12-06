@@ -1,5 +1,5 @@
 import React from 'react';
-import Data from './data';
+import Data from './Data/Book-Data';
 
 const Book = () => {
 	const destinations = Data;

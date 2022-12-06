@@ -1,5 +1,5 @@
 import React from 'react';
-import Data from './data';
+import Data from './Data/Discover-Data';
 
 const Discover = () => {
 	const destinations = Data;
