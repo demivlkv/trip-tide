@@ -145,5 +145,5 @@
 }
 
 .profile .btn {
-  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm !important;
+  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm;
 }

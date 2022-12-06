@@ -49,15 +49,17 @@ const Profile = () => {
     <Layout>
       <div className="w-full h-screen">
         <div className="profile w-full pt-[100px] flex flex-col justify-center items-start">
-          <div className="w-full flex justify-center">
+          <div className="w-full h-full flex justify-center">
             <h2 className="font-semibold uppercase">
               Viewing {userParam ? `${user.username}'s` : 'your'} profile.
             </h2>
+            {userParam && (
               <button onClick={handleClick} className="btn">
-                <div className="w-full h-full inline-flex items-center pr-1">
-                  <Plus width={18} className="mr-1" /> Follow
+                <div className="w-full h-full inline-flex items-center pr-1 font-normal">
+                  <Plus width={17} className="mr-1" /> Follow
                 </div>
               </button>
+            )}
           </div>
 
           <div className="relative w-full p-4 flex flex-row flex-wrap justify-center">
