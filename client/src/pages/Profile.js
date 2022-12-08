@@ -8,6 +8,7 @@ import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
 import FriendList from '../components/FriendList';
 import PostList from '../components/PostList';
+import PostForm from '../components/PostForm';
 
 const Profile = () => {
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -77,6 +78,7 @@ const Profile = () => {
               />
             </div>
           </div>
+          <div className="w-full flex justify-center items-center mt-8">{!userParam && <PostForm />}</div>
         </div>
       </div>
     </Layout>
