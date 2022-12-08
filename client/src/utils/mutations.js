@@ -38,3 +38,19 @@ export const ADD_FRIEND = gql`
     }
   }
 `;
+
+export const ADD_POST = gql`
+  mutation addPost($postTitle: String!, $postText: String!) {
+    addPost(postTitle: $postTitle, postText: $postText) {
+      _id
+      postTitle
+      postText
+      createdAt
+      username
+      commentCount
+      comments {
+        _id
+      }
+    }
+  }
+`;

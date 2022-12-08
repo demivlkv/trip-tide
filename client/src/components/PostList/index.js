@@ -12,11 +12,11 @@ const PostList = ({ posts, title }) => {
       {posts &&
         posts.map(post => (
           <div key={post._id} className="card mb-3">
-            <p className="card-header">
+            <h4>{post.postTitle}</h4>
+            <p className="mb-4 text-gray-400 text-sm">
               <Link
                 to={`/profile/${post.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
+                className="text-teal-400 hover:text-gray-500"
               >
                 {post.username}
               </Link>{' '}
@@ -25,9 +25,8 @@ const PostList = ({ posts, title }) => {
             <div className="card-body">
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
-                <p className="mb-0">
-                  Comments: {post.commentCount} || Click to{' '}
-                  {post.commentCount ? 'see' : 'start'} the discussion!
+                <p className="mt-4 text-sm">
+                  {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
                 </p>
               </Link>
             </div>
