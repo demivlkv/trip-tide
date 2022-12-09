@@ -57,13 +57,13 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div className="post-form">
         <p className={`m-0 ${characterCount === 1000 || error ? 'text-blue-400' : ''}`}>
           Character Count: {characterCount}/1000
           {error && <span className="mt-4 pl-2">Something went wrong...</span>}
         </p>
 
-        <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
+        <form className="w-full md:w-[40vw] flex flex-col justify-center" onSubmit={handleFormSubmit}>
           <label className="block">Title</label>
 					<input
             type="text"
@@ -75,7 +75,7 @@ const PostForm = () => {
               placeholder="Post here"
               value={postText}
               onChange={handleChange}
-              className="w-[500px] mb-4"
+              className="h-[10vh] md:h-[14vh] mb-4"
           ></textarea>
           <button>
               Post

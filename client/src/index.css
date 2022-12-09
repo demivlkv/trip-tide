@@ -21,6 +21,10 @@
     @apply text-xl md:text-2xl font-light uppercase tracking-widest;
   }
 
+  h4 {
+    @apply text-xl font-semibold uppercase tracking-wider;
+  }
+
   p {
     @apply text-left leading-relaxed;
   }
@@ -30,7 +34,7 @@
   }
 
   button, button[type=submit] {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-2 px-4;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-70 rounded-md py-2 px-4;
   }
 }
 
@@ -132,6 +136,15 @@
 
   .footer .right li {
     @apply p-2;
+  }
+
+  /* POST FORM COMPONENT */
+  .post-form {
+    @apply w-full p-4 flex flex-col justify-center items-center;
+  }
+
+  .post-form input, .post-form textarea {
+    @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
   }
 }
 

@@ -48,7 +48,7 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className="w-full h-screen">
+      <div className="w-full h-full">
         <div className="profile w-full pt-[100px] flex flex-col justify-center items-start">
           <div className="w-full h-full flex justify-center">
             <h2 className="font-semibold uppercase">

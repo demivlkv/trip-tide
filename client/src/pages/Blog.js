@@ -14,21 +14,19 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="w-full h-full md:h-screen">
-        <div className="w-full h-full flex flex-col justify-center items-center">
-          <div className="mt-[350px]">
-            {loggedIn && (
-              <div className="mb-8">
-                <PostForm />
-              </div>
-            )}
-            <div className={`w-full ${loggedIn && 'w-2/3'}`}>
-            {loading ? (
-              <div>Loading...</div>
-            ) : (
-              <PostList posts={posts} title="Turning travel passions into travel plans" />
-            )}
+      <div className="w-full h-full p-4 flex flex-col justify-center items-center">
+        <div className="mt-[120px] mx-8">
+          {loggedIn && (
+            <div className="mb-8">
+              <PostForm />
             </div>
+          )}
+          <div className={`w-full flex flex-row flex-wrap justify-center items-start ${loggedIn && ''}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <PostList posts={posts} title="Turning travel passions into travel plans" />
+          )}
           </div>
         </div>
       </div>
