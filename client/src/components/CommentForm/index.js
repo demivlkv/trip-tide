@@ -29,12 +29,12 @@ const CommentForm = ({ postId }) => {
       };
 
   return (
-    <div>
+    <div className="comment-form mb-8">
       <p className={`m-0 ${characterCount === 1000 || error ? 'text-blue-400' : ''}`}>
         Character Count: {characterCount}/1000
         {error && <span className="mt-4 pl-2">Something went wrong...</span>}
       </p>
-      <form className="w-full md:w-[40vw] flex flex-col justify-center" onSubmit={handleFormSubmit}>
+      <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
         <textarea
           placeholder="Leave a comment to this post..."
           value={commentBody}
