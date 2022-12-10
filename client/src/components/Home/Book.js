@@ -4,6 +4,18 @@ import Data from './Data/Book-Data';
 const Book = () => {
 	const destinations = Data;
 
+	// display return date if `round trip` is selected
+	const roundTripHandleChange = event => {
+        document.getElementById('return-date').style.visibility =
+		event.checked && event.id === 'round-trip' ? 'hidden' : 'visible';
+    };
+
+	// hide return date if `one way` is selected
+	const oneWayHandleChange = event => {
+        document.getElementById('return-date').style.visibility =
+		event.checked && event.id === 'one-way' ? 'visible' : 'hidden';
+    };
+
 	return (
 		<div name="book" className="book w-full h-full md:h-screen relative p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
@@ -19,8 +31,10 @@ const Book = () => {
 								<input
 									type="radio"
 									id="round-trip"
-									name="round-trip"
+									name="trip-type"
 									value="round-trip"
+									onChange={roundTripHandleChange}
+									defaultChecked
 								/>
 								<label for="round-trip" className="pl-2 pr-6">
 									Round-Trip
@@ -28,8 +42,9 @@ const Book = () => {
 								<input
 									type="radio"
 									id="one-way"
-									name="one-way"
+									name="trip-type"
 									value="one-way"
+									onChange={oneWayHandleChange}
 								/>
 								<label for="one-way" className="pl-2">
 									One-Way
@@ -67,7 +82,7 @@ const Book = () => {
 									<label className="block">Departure Date</label>
 									<input type="date" />
 								</div>
-								<div>
+								<div id="return-date">
 									<label className="block">Return Date</label>
 									<input type="date" />
 								</div>

@@ -64,8 +64,10 @@ const Profile = () => {
           </div>
 
           <div className="relative w-full p-4 flex flex-row flex-wrap justify-center">
-            {/* DISPLAY USER'S POSTS */}
-            <div className="w-full md:w-1/2 md:max-w-screen-md mx-4 md:mr-2 p-4 bg-teal-200">
+            <div className="w-full md:w-1/2 md:max-w-screen-md mx-4 md:mr-2 p-4 bg-teal-50">
+              {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
+              {!userParam && <PostForm />}
+              {/* DISPLAY USER'S POSTS */}
               <PostList posts={user.posts} title={`${user.username}'s posts...`} />
             </div>
 
@@ -78,7 +80,6 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="w-full flex justify-center items-center mt-8">{!userParam && <PostForm />}</div>
         </div>
       </div>
     </Layout>
