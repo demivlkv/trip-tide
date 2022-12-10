@@ -18,11 +18,11 @@
   }
 
   h2 {
-    @apply text-xl md:text-2xl font-light uppercase tracking-widest;
+    @apply text-xl md:text-2xl font-light uppercase tracking-wider;
   }
 
-  h4 {
-    @apply text-xl font-semibold uppercase tracking-wider;
+  h3 {
+    @apply text-2xl font-semibold uppercase tracking-wide;
   }
 
   p {
@@ -49,11 +49,11 @@
   }
 
   .navbar li.logout {
-    @apply px-4 hover:text-gray-500 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+    @apply px-4 hover:text-gray-500 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
   }
 
   .navbar li.logout-light {
-    @apply px-4 hover:text-gray-200 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+    @apply px-4 hover:text-gray-200 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
   }
 
   .mobile-menu {
@@ -158,5 +158,5 @@
 }
 
 .profile .btn {
-  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm;
+  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-2 outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm;
 }
