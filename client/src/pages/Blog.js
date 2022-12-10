@@ -24,7 +24,7 @@ const Home = () => {
             <PostForm />
           </div>
         )}
-        <div className={`box-border max-w-screen-xl mx-4 columns-1 md:columns-2 lg:columns-3 ${loggedIn && ''}`}>
+        <div className={`box-border max-w-screen-xl mx-4 mb-8 columns-1 md:columns-2 lg:columns-3 ${loggedIn && ''}`}>
         {loading ? (
           <div>Loading...</div>
         ) : (

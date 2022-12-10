@@ -13,7 +13,7 @@ const PostList = ({ posts, title }) => {
       </div>
       {posts &&
         posts.map(post => (
-          <article key={post._id} className="bg-gray-50 mx-1 my-2 p-4 break-inside-avoid flex flex-col rounded-md shadow-lg">
+          <article key={post._id} className="bg-gray-50 mx-1 my-2 p-4 break-inside-avoid flex flex-col rounded-md shadow-lg hover:shadow-slate-400 transition-all ease-in duration-300">
             <div className="flex items-center">
               <div className="mr-4">
                 <img

@@ -24,7 +24,7 @@ const SinglePost = (props) => {
   return (
     <Layout>
       <div className="w-full h-full">
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <article className="max-w-screen-lg mt-[130px] bg-gray-50 m-4 p-4 flex flex-col rounded-md shadow-lg">
             <div className="w-full flex items-center">
               <div className="mr-4">
