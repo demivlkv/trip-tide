@@ -18,6 +18,7 @@ const PostList = ({ posts, title }) => {
               <div className="mr-4">
                 <img
                   src="https://randomuser.me/api/portraits/women/18.jpg"
+                  alt="user icon"
                   className="w-14 h-14 rounded-full"
                 />
               </div>

@@ -45,7 +45,7 @@ const PostForm = () => {
     try {
       // add post to database
       await addPost({
-        variables: { postTitle, postText },
+        variables: { postTitle, postText }
       });
       // set clear form value
       setTitle('');
