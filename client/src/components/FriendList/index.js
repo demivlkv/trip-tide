@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const FriendList = ({ friendCount, username, friends }) => {
-    if (!friends || !friends.length) {
-        return <p className="font-semibold uppercase tracking-widest">{username} has no followers</p>;
-    }
+    // if (!friends || !friends.length) {
+    //     return <p className="font-semibold uppercase tracking-widest">{username} has no followers</p>;
+    // }
 
   return (
     <>
@@ -18,9 +18,14 @@ const FriendList = ({ friendCount, username, friends }) => {
         </div>
         <div>
           <h3>{username}</h3>
-          <p className="text-sm">
-            {friendCount} {friendCount === 1 ? 'follower' : 'followers'}
-          </p>
+          <div className="w-full flex justify-between">
+            <div className="mr-6">
+              <p className="text-sm text-gray-500">{friendCount} {friendCount === 1 ? 'follower' : 'followers'}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-500">{friendCount} following</p>
+            </div>
+          </div>
         </div>
       </div>
       {friends.map(friend => (

@@ -31,7 +31,7 @@ const SinglePost = (props) => {
                 <img
                   src="https://randomuser.me/api/portraits/women/18.jpg"
                   alt="user icon"
-                  className="w-14 h-14 rounded-full"
+                  className="w-14 h-14 md:w-20 md:h-20 rounded-full"
                 />
               </div>
               <div>
@@ -41,7 +41,7 @@ const SinglePost = (props) => {
                 >
                   {post.username}
                 </Link>
-                <p className="text-gray-400">{post.createdAt}</p>
+                <p className="text-gray-400 text-sm">{post.createdAt}</p>
               </div>
             </div>
             <h3 className="w-full my-4">

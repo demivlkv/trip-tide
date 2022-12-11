@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
-    return <h3 className="text-2xl font-semibold uppercase tracking-widest">No posts Yet</h3>;
+    return <div className="my-8 text-2xl text-center font-semibold uppercase tracking-widest">No posts Yet</div>;
   }
 
   return (
@@ -29,7 +29,7 @@ const PostList = ({ posts, title }) => {
                 >
                   {post.username}
                 </Link>
-                <p className="text-gray-400">{post.createdAt}</p>
+                <p className="text-gray-400 text-sm">{post.createdAt}</p>
               </div>
             </div>
             <h3 className="my-4">
