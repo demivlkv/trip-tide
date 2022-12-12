@@ -17,13 +17,13 @@ const FriendList = ({ friendCount, username, friends }) => {
           />
         </div>
         <div>
-          <h3>{username}</h3>
-          <div className="w-full flex justify-between">
+          <h3 className="text-gray-600">{username}</h3>
+          <div className="w-full flex justify-start">
             <div className="mr-6">
-              <p className="text-sm text-gray-500">{friendCount} {friendCount === 1 ? 'follower' : 'followers'}</p>
+              <p className="text-sm text-gray-400">{friendCount} {friendCount === 1 ? 'follower' : 'followers'}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">{friendCount} following</p>
+              <p className="text-sm text-gray-400">{friendCount} following</p>
             </div>
           </div>
         </div>

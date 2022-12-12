@@ -50,34 +50,34 @@ const Profile = () => {
     <Layout>
       <div className="w-full h-full">
         <div className="profile w-full pt-[100px] flex flex-col justify-center items-start">
-          <div className="w-[90%] h-full flex justify-end">
-            {/* <h2 className="font-semibold uppercase">
-              Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-            </h2> */}
-            {userParam && (
-              <button onClick={handleClick} className="btn">
-                <div className="w-full h-full inline-flex items-center pr-1 font-normal">
-                  <Plus width={17} className="mr-1" /> Follow
-                </div>
-              </button>
-            )}
+          {/* DISPLAY USER'S FOLLOWERS */}
+          <div className="w-full max-w-screen-md mx-auto p-4">
+            <div className="flex flex-row justify-between">
+              <div>
+                <FriendList
+                  username={user.username}
+                  friendCount={user.friendCount}
+                  friends={user.friends}
+                />
+              </div>
+              <div className="pt-6 flex items-start">
+              {userParam && (
+                <button onClick={handleClick} className="btn">
+                  <div className="w-full h-full inline-flex items-center pr-1 font-normal">
+                    <Plus width={16} className="mr-1" /> Follow
+                  </div>
+                </button>
+              )}
+              </div>
+            </div>
           </div>
 
           <div className="relative w-full p-4 flex flex-row flex-wrap justify-center">
-            <div className="w-full md:w-1/2 md:max-w-screen-md mx-4 md:mr-2 p-4">
+            <div className="w-full max-w-screen-lg mx-4 p-4">
               {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
               {!userParam && <PostForm />}
               {/* DISPLAY USER'S POSTS */}
               <PostList posts={user.posts} title={`${user.username}'s posts...`} />
-            </div>
-
-            {/* DISPLAY USER'S FOLLOWERS */}
-            <div className="w-full max-w-[375px] mx-4 md:ml-2 p-4 bg-gray-100 rounded">
-              <FriendList
-                username={user.username}
-                friendCount={user.friendCount}
-                friends={user.friends}
-              />
             </div>
           </div>
         </div>
