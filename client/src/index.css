@@ -156,11 +156,15 @@
 
 /* SIGNUP & LOGIN PAGES */
 .card {
-  @apply w-full max-w-[500px] p-4 flex flex-col justify-center items-center bg-gray-100 rounded;
+  @apply w-full max-w-screen-sm bg-[#ffffffe1] p-6 flex flex-col justify-center items-center rounded-lg drop-shadow-lg z-[1];
+}
+
+.signup .icons {
+  @apply inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-teal-400;
 }
 
 .signup input, .login input {
-  @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  @apply w-full bg-transparent my-2 py-3 pl-10 pr-3 bg-white rounded-lg border border-gray-200 text-sm;
 }
 
 .profile .btn {
