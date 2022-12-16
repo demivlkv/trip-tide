@@ -51,6 +51,12 @@ export const ADD_POST = gql`
       comments {
         _id
       }
+      likeCount
+      likes {
+        _id
+        username
+        createdAt
+      }
     }
   }
 `;
@@ -66,6 +72,19 @@ export const ADD_COMMENT = gql`
         createdAt
         username
       }
+    }
+  }
+`;
+
+export const LIKE_POST = gql`
+  mutation likePost($postId: ID!) {
+    likePost(postId: $postId) {
+      _id
+      likes {
+        _id
+        username
+      }
+      likeCount
     }
   }
 `;

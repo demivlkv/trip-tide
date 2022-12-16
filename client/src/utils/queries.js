@@ -63,6 +63,10 @@ export const QUERY_USER = gql`
                 postText
                 createdAt
                 commentCount
+                likesCount
+                likes {
+                    username
+                }
             }
         }
     }
@@ -85,6 +89,11 @@ export const QUERY_ME = gql`
                     _id
                     createdAt
                     commentBody
+                    username
+                }
+                likes{
+                    _id
+                    createdAt
                     username
                 }
             }

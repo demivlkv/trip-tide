@@ -28,7 +28,14 @@ const Home = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <PostList posts={posts} />
+          <>
+            {posts &&
+              posts.map((post) => (
+                <div key={post._id}>
+                  <PostList post={post} />
+                </div>
+            ))}
+          </>
         )}
         </div>
       </div>
