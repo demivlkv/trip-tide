@@ -6,15 +6,15 @@ const Book = () => {
 
 	// display return date if `round trip` is selected
 	const roundTripHandleChange = event => {
-        document.getElementById('return-date').style.visibility =
+    document.getElementById('return-date').style.visibility =
 		event.checked && event.id === 'round-trip' ? 'hidden' : 'visible';
-    };
+  };
 
 	// hide return date if `one way` is selected
 	const oneWayHandleChange = event => {
-        document.getElementById('return-date').style.visibility =
+    document.getElementById('return-date').style.visibility =
 		event.checked && event.id === 'one-way' ? 'visible' : 'hidden';
-    };
+  };
 
 	return (
 		<div name="book" className="book w-full h-full md:h-screen relative p-8">
@@ -94,11 +94,11 @@ const Book = () => {
 					</div>
 
 					{/* SEARCH DEALS */}
-                    <div className="w-full">
-                        <h2 className="mb-8 text-teal-400 text-center">
-                            Don't miss these deals
-                        </h2>
-                    </div>
+          <div className="w-full">
+              <h2 className="mb-8 text-teal-400 text-center">
+                  Don't miss these deals
+              </h2>
+          </div>
 
 					<div className="images grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
 						{destinations.map((city) => (

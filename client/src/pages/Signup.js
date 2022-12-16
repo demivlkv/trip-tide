@@ -35,8 +35,8 @@ const Signup = () => {
 
 	return (
 		<Layout>
-            <div className="w-full h-screen">
-			    <div className="signup bg-signup bg-fixed bg-cover w-full h-full flex flex-col justify-center items-center px-4">
+      <div className="w-full h-screen">
+			  <div className="signup bg-signup bg-fixed bg-cover w-full h-full flex flex-col justify-center items-center px-4">
 					<div className="mb-8 flex flex-col justify-center items-center text-white z-[1]">
 						<h1>Sign Up</h1>
 						<h2>Join the travel community</h2>
@@ -97,7 +97,7 @@ const Signup = () => {
 						{error && <div className="text-sm text-slate-600 italic">Sign up failed</div>}
 					</div>
 					<div className="w-full h-full absolute top-0 left-0 bg-gradient-to-r opacity-80 from-teal-100 via-slate-600 to-sky-800 z-0"></div>
-                </div>
+        </div>
 			</div>
 		</Layout>
 	);

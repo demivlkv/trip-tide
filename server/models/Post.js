@@ -21,7 +21,23 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    comments: [commentSchema]
+    comments: [commentSchema],
+    likes: [
+      {
+        username: String,
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          get: timestamp => moment(timestamp).format('ll @ HH:mm')
+        }
+      }
+    ],
+    user: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ]
   },
   {
     toJSON: {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const FriendList = ({ friendCount, username, friends }) => {
-    // if (!friends || !friends.length) {
-    //     return <p className="font-semibold uppercase tracking-widest">{username} has no followers</p>;
-    // }
+  // if (!friends || !friends.length) {
+  //     return <p className="font-semibold uppercase tracking-widest">{username} has no followers</p>;
+  // }
 
   return (
     <>

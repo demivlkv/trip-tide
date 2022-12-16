@@ -5,7 +5,7 @@ const About = () => {
 		<div name="about" className="about w-full h-full md:h-screen p-8">
 			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
 				<h1>
-          			Bringing the world to you
+          Bringing the world to you
 				</h1>
 				<p className="pt-4">
 					Trip Tide was founded in 2022 by a traveler, <em className="text-teal-400">for travelers</em>.

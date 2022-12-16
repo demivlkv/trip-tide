@@ -29,6 +29,9 @@ const userSchema = new Schema(
 				ref: 'Post',
 			},
 		],
+		createdAt: {
+			type: String
+		},
 		friends: [
 			{
 				type: Schema.Types.ObjectId,

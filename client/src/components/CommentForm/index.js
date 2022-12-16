@@ -8,25 +8,24 @@ const CommentForm = ({ postId }) => {
     const [addComment, { error }] = useMutation(ADD_COMMENT);
 
     const handleChange = event => {
-        if (event.target.value.length <= 1000) {
-          setBody(event.target.value);
-          setCharacterCount(event.target.value.length);
-        }
-      };
+      if (event.target.value.length <= 1000) {
+        setBody(event.target.value);
+        setCharacterCount(event.target.value.length);
+      }
+    };
       
-      const handleFormSubmit = async event => {
-        event.preventDefault();
-
-        try{
-            await addComment({
-                variables: { commentBody, postId }
-            });
-            setBody('');
-            setCharacterCount(0);
-        } catch (e) {
-            console.log(e);
-        }
-      };
+    const handleFormSubmit = async event => {
+      event.preventDefault();
+      try{
+          await addComment({
+              variables: { commentBody, postId }
+          });
+          setBody('');
+          setCharacterCount(0);
+      } catch (e) {
+          console.log(e);
+      }
+    };
 
   return (
     <div className="comment-form my-8">
