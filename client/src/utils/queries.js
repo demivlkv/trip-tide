@@ -15,6 +15,10 @@ export const QUERY_POSTS = gql`
                 username
                 commentBody
             }
+            likeCount
+            likes {
+                username
+            }
         }
     }
 `;
@@ -33,6 +37,10 @@ export const QUERY_POST = gql`
               createdAt
               username
               commentBody
+            }
+            likeCount
+            likes {
+                username
             }
         }
     }
