@@ -50,6 +50,10 @@ postSchema.virtual('commentCount').get(function() {
   return this.comments.length;
 });
 
+postSchema.virtual('likeCount').get(function() {
+  return this.likes.length;
+});
+
 const Post = model('Post', postSchema);
 
 module.exports = Post;

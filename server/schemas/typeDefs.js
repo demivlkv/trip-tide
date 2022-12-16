@@ -17,9 +17,10 @@ const typeDefs = gql`
         postText: String!
         createdAt: String
         username: String
-        commentCount: Int
         comments: [Comment]
+        commentCount: Int
         likes: [Like]
+        likeCount: Int
     }
 
     type Comment {

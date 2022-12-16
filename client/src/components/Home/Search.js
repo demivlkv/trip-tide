@@ -7,7 +7,7 @@ const Search = () => {
     url: 'https://address-from-to-latitude-longitude.p.rapidapi.com/geolocationapi',
     params: {address: 'Eiffel Tower'},
     headers: {
-      'X-RapidAPI-Key': 'ab67ede97bmsh9b19263a31215e7p190892jsn01189afb67d3',
+      'X-RapidAPI-Key': process.env.REACT_APP_LATLONAPI_KEY,
       'X-RapidAPI-Host': 'address-from-to-latitude-longitude.p.rapidapi.com'
     }
   };
