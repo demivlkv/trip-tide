@@ -24,7 +24,17 @@ const resolvers = {
 
         // GET post by ID
         post: async (parent, { _id }) => {
-            return Post.findOne({ _id });
+            try{
+                const post = await Post.findOne({ _id });
+
+                if (post) {
+                    return post;
+                } else {
+                    throw new Error('Post not found');
+                }
+            } catch(err) {
+                throw new Error(err);
+            }
         },
 
         // GET all users
@@ -83,6 +93,37 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in');
         },
 
+        likePost: async (parent, { postId }, context) => {
+            const { username } = context.user;
+            const post = await Post.findById(postId);
+
+            if (post) {
+                if (post.likes.find(like => like.username === username)) {
+                    // if post is already liked, then unlike it
+                    post.likes = post.likes.filter(like => like.username !== username);
+                } else {
+                    // if post is unliked, then like post
+                    post.likes.push({
+                        username,
+                        createdAt: new Date().toISOString()
+                    })
+                }
+                await post.save();
+                return post;
+            } else {
+                throw new Error('Post not found');
+            }
+        },
+
+        deletePost: async (parent, { postId }, context) => {
+            if (context.user) {
+                const post = await Post.findById(postId);
+                await post.delete();
+                return 'Post successfully deleted';
+            }
+            throw new AuthenticationError('You need to be logged in');
+        },
+
         addComment: async (parent, { postId, commentBody }, context) => {
             if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(
@@ -93,6 +134,25 @@ const resolvers = {
                 return updatedPost;
             }
             throw new AuthenticationError('You need to be logged in');
+        },
+
+        deleteComment: async (parent, { postId, commentId }, context) => {
+            const { username } = context.user;
+            const post = await Post.findById(postId);
+
+            if (post) {
+                const commentIndex = post.comments.findIndex((c) => c.id === commentId);
+
+                if (post.comments[commentIndex].username === username) {
+                    post.comments.splice(commentIndex, 1);
+                    await post.save();
+                    return post;
+                } else {
+                    throw new AuthenticationError('You need to be logged in');
+                }
+            } else {
+                throw new Error ('Post not found');
+            }
         },
 
         addFriend: async (parent, { friendId }, context) => {

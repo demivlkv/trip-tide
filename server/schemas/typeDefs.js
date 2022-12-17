@@ -2,9 +2,9 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type User {
-        _id: ID
-        username: String
-        email: String
+        _id: ID!
+        username: String!
+        email: String!
         friendCount: Int
         posts: [Post]
         friends: [User]
@@ -12,20 +12,29 @@ const typeDefs = gql`
     }
 
     type Post {
-        _id: ID
-        postText: String
+        _id: ID!
+        postTitle: String
+        postText: String!
         createdAt: String
         username: String
-        commentCount: Int
         comments: [Comment]
+        commentCount: Int
+        likes: [Like]!
+        likeCount: Int!
     }
 
     type Comment {
-        _id: ID
-        commentBody: String
-        username: String
+        _id: ID!
+        commentBody: String!
+        username: String!
         createdAt: String
         place_id: String
+    }
+
+    type Like {
+        _id: ID!
+        username: String!
+        createdAt: String
     }
 
     type Place {
@@ -62,8 +71,11 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addPost(postText: String!, comment_id: String!): Post
-        addComment(postId: ID!, commentBody: String!): Post
+        addPost(postTitle: String!, postText: String!): Post!
+        deletePost(postId: ID!): String!
+        addComment(postId: ID!, commentBody: String!): Post!
+        deleteComment(postId: ID!, commentId: ID!): Post!
+        likePost(postId: ID!): Post!
         addFriend(friendId: ID!): User
         savePlace(input: PlaceInput!): User
         removePlace(placeId: String!): User

@@ -1,9 +1,13 @@
 const { Schema, model } = require('mongoose');
 const commentSchema = require('./Comment');
-const dateFormat = require('../utils/dateFormat');
+const moment = require('moment');
 
 const postSchema = new Schema(
   {
+    postTitle: {
+      type: String,
+      required: 'You need write something!'
+    },
     postText: {
       type: String,
       required: 'You need write something!'
@@ -11,13 +15,29 @@ const postSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+      get: timestamp => moment(timestamp).fromNow()
     },
     username: {
       type: String,
       required: true
     },
-    comments: [commentSchema]
+    comments: [commentSchema],
+    likes: [
+      {
+        username: String,
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          get: timestamp => moment(timestamp).fromNow()
+        }
+      }
+    ],
+    user: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ]
   },
   {
     toJSON: {
@@ -28,6 +48,10 @@ const postSchema = new Schema(
 
 postSchema.virtual('commentCount').get(function() {
   return this.comments.length;
+});
+
+postSchema.virtual('likeCount').get(function() {
+  return this.likes.length;
 });
 
 const Post = model('Post', postSchema);

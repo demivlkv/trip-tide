@@ -18,7 +18,11 @@
   }
 
   h2 {
-    @apply text-xl md:text-2xl font-light uppercase tracking-widest;
+    @apply text-xl md:text-2xl font-light uppercase tracking-wider;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold uppercase tracking-wide;
   }
 
   p {
@@ -29,8 +33,8 @@
     @apply transition-all ease-in duration-300;
   }
 
-  button, button[type=submit] {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-60 rounded-md py-2 px-4;
+  button.primary, button[type=submit].primary {
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300 hover:opacity-[0.75] rounded-md py-2 px-4;
   }
 }
 
@@ -45,11 +49,11 @@
   }
 
   .navbar li.logout {
-    @apply px-4 hover:text-gray-500 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+    @apply px-4 hover:text-gray-500 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
   }
 
   .navbar li.logout-light {
-    @apply px-4 hover:text-gray-200 py-2 outline outline-offset-0 hover:outline-teal-200 rounded-sm;
+    @apply px-4 hover:text-gray-200 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
   }
 
   .mobile-menu {
@@ -133,17 +137,53 @@
   .footer .right li {
     @apply p-2;
   }
+
+  /* POST & COMMENT FORM COMPONENT */
+  .post-form {
+    @apply w-full p-4 flex flex-col justify-center items-center;
+  }
+
+  .comment-form {
+    @apply w-full px-4 md:w-[50vw] md:max-w-2xl;
+  }
+
+  .post-form input,
+  .post-form textarea,
+  .comment-form textarea {
+    @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  }
+
+  /* LIKE BUTTON COMPONENT */
+  button.like-btn {
+    @apply inline-flex items-center text-gray-400 hover:text-red-400 transition-all ease-in duration-300;
+  }
+
+  .liked-heart {
+    @apply w-5 h-5 text-red-400 hover:text-red-200 mr-1 transition-all ease-in duration-300;
+  }
+
+  .unliked-heart {
+    @apply w-5 h-5 mr-1;
+  }
 }
 
 /* SIGNUP & LOGIN PAGES */
 .card {
-  @apply w-full max-w-[500px] p-4 flex flex-col justify-center items-center bg-gray-100 rounded;
+  @apply w-full max-w-[400px] bg-gray-50 py-6 px-8 flex flex-col justify-center items-center rounded-md drop-shadow-lg z-[1];
+}
+
+.signup .icons, .login .icons {
+  @apply inline-flex items-center justify-center absolute left-1 top-0 h-full w-10 text-sky-600;
 }
 
 .signup input, .login input {
-  @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  @apply w-full bg-transparent my-2 py-3 pl-10 pr-3 bg-white rounded-3xl border border-gray-200 text-sm;
+}
+
+.signup button, .login button {
+  @apply w-full my-4 rounded-3xl;
 }
 
 .profile .btn {
-  @apply py-1 px-3 text-gray-800 bg-gradient-to-t from-white to-white outline outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm !important;
+  @apply py-1 px-3 flex items-center text-sm text-gray-800 bg-gradient-to-t from-white to-white outline outline-2 outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm;
 }

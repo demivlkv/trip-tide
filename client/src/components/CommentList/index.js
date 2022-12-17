@@ -3,22 +3,39 @@ import { Link } from 'react-router-dom';
 
 const CommentList = ({ comments }) => {
   return (
-    <div>
-        <div className="card mb-3">
-            <div className="card-header">
-                <span className="text-light">Comments</span>
-            </div>
-            <div className="card-body">
-                {comments &&
-                comments.map(comment => (
-                    <p className="pill mb-3" key={comment._id}>
-                    {comment.commentBody} {'// '}
-                    <Link to={`/profile/${comment.username}`} style={{ fontWeight: 700 }}>
-                        {comment.username} on {comment.createdAt}
-                    </Link>
-                    </p>
-                ))}
-            </div>
+    <div className="w-full flex flex-col justify-center items-center">
+        <div className="mt-10">
+            <h2>Comments</h2>
+        </div>
+        <div className="mt-6">
+            {comments &&
+            comments.map(comment => (
+                <article className="max-w-screen-md py-4">
+                    <div className="w-full flex justify-center items-start">
+                        <div className="w-24">
+                            <img
+                                src="https://randomuser.me/api/portraits/women/18.jpg"
+                                alt="user icon"
+                                className="w-16 h-16 rounded-full"
+                            />
+                        </div>
+                        <div className="w-full">
+                            <div className="bg-gray-100 p-4 rounded-lg">
+                                <Link
+                                    to={`/profile/${comment.username}`}
+                                    className="font-semibold text-teal-400 hover:text-gray-500 uppercase tracking-widest"
+                                >
+                                    {comment.username}
+                                </Link>
+                                <div className="mt-4" key={comment._id}>
+                                    {comment.commentBody}
+                                </div>
+                            </div>
+                            <p className="mt-2 pl-4 text-gray-400 text-sm">{comment.createdAt}</p>
+                        </div>
+                    </div>
+                </article>
+            ))}
         </div>
     </div>
   )

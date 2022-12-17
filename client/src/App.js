@@ -1,7 +1,9 @@
 import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+import Auth from './utils/auth';
 
 // components
 import Footer from './components/Footer';
@@ -34,6 +36,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const loggedIn = Auth.loggedIn();
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -50,18 +54,18 @@ function App() {
             />
             <Route
               path="/login"
-              element={<Login />}
+              element={loggedIn ? <Navigate to="/" /> : <Login />}
             />
             <Route
               path="/signup"
-              element={<Signup />}
+              element={loggedIn ? <Navigate to="/" /> : <Signup />}
             />
             <Route path="/profile">
               <Route path=":username" element={<Profile />} />
               <Route path="" element={<Profile />} />
             </Route>
             <Route
-              path="/post"
+              path="/post/:id"
               element={<SinglePost />}
             />
             <Route
