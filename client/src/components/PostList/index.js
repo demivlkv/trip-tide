@@ -8,7 +8,7 @@ import LikeButton from '../LikeButton';
 import DeleteButton from '../DeleteButton';
 
 const PostList = ({ post: { _id, username, postTitle, postText, createdAt, commentCount, likes, likeCount } }) => {
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data: user } = useQuery(QUERY_ME);
 
   function deletePostCallback() {
     window.location.assign('/blog');
@@ -51,11 +51,11 @@ const PostList = ({ post: { _id, username, postTitle, postText, createdAt, comme
                 <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {commentCount} {commentCount === 1 ? 'comment' : 'comments' }
               </Link>
 
-              <LikeButton user={userData.me.user} post={{ _id, likes, likeCount }} />
+              <LikeButton user={user} post={{ _id, likes, likeCount }} />
             </div>
             <div>
               {/* gives user the option to delete their own post */}
-              {userData.me && username === userData.me.username && (
+              {user && username === user.username && (
                 <DeleteButton postId={_id} callback={deletePostCallback} />
               )}
             </div>

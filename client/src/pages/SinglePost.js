@@ -66,11 +66,11 @@ const SinglePost = (props) => {
                     <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
                   </Link>
 
-                  <LikeButton user={post.user} posts={{ _id, likes, likeCount}} />
+                  <LikeButton user={userData.user} post={{ _id, likes, likeCount}} />
                 </div>
                 <div>
                   {/* gives user the option to delete their own post */}
-                  {userData.me && post.username === userData.me.username && (
+                  {userData && post.username === userData.username && (
                     <DeleteButton postId={post._id} />
                   )}
                 </div>
