@@ -1,20 +1,8 @@
 import React from 'react';
-import Data from './Data/Book-Data';
+import Data from './data';
 
 const Book = () => {
 	const destinations = Data;
-
-	// display return date if `round trip` is selected
-	const roundTripHandleChange = event => {
-    document.getElementById('return-date').style.visibility =
-		event.checked && event.id === 'round-trip' ? 'hidden' : 'visible';
-  };
-
-	// hide return date if `one way` is selected
-	const oneWayHandleChange = event => {
-    document.getElementById('return-date').style.visibility =
-		event.checked && event.id === 'one-way' ? 'visible' : 'hidden';
-  };
 
 	return (
 		<div name="book" className="book w-full h-full md:h-screen relative p-8">
@@ -31,10 +19,8 @@ const Book = () => {
 								<input
 									type="radio"
 									id="round-trip"
-									name="trip-type"
+									name="round-trip"
 									value="round-trip"
-									onChange={roundTripHandleChange}
-									defaultChecked
 								/>
 								<label for="round-trip" className="pl-2 pr-6">
 									Round-Trip
@@ -42,9 +28,8 @@ const Book = () => {
 								<input
 									type="radio"
 									id="one-way"
-									name="trip-type"
+									name="one-way"
 									value="one-way"
-									onChange={oneWayHandleChange}
 								/>
 								<label for="one-way" className="pl-2">
 									One-Way
@@ -82,23 +67,23 @@ const Book = () => {
 									<label className="block">Departure Date</label>
 									<input type="date" />
 								</div>
-								<div id="return-date">
+								<div>
 									<label className="block">Return Date</label>
 									<input type="date" />
 								</div>
 								<div className="pt-6">
-									<button className="primary w-full h-[43px]">Find Your Trip</button>
+									<button className="w-full h-[43px]">Find Your Trip</button>
 								</div>
 							</div>
 						</form>
 					</div>
 
 					{/* SEARCH DEALS */}
-          <div className="w-full">
-              <h2 className="mb-8 text-teal-400 text-center">
-                  Don't miss these deals
-              </h2>
-          </div>
+                    <div className="w-full">
+                        <h2 className="mb-8 text-teal-400 text-center">
+                            Don't miss these deals
+                        </h2>
+                    </div>
 
 					<div className="images grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
 						{destinations.map((city) => (
@@ -115,7 +100,7 @@ const Book = () => {
 										<div>{city.deal}</div>
 										<div>per person</div>
 									</div>
-									<button className="primary w-full mt-4">View Deal</button>
+									<button className="w-full mt-4">View Deal</button>
 								</div>
 							</div>
 						))}

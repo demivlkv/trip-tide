@@ -9,10 +9,10 @@ const LightNavbar = () => {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
 
-		const logout = event => {
-			event.preventDefault();
-			Auth.logout();
-		};
+	const logout = event => {
+		event.preventDefault();
+		Auth.logout();
+	};
 
 	return (
 		<nav name="home" className="navbar">
@@ -57,24 +57,24 @@ const LightNavbar = () => {
 					{!nav ? (<Bars2Icon width={30} />) : (<XMarkIcon width={30} />)}
 				</div>
 
-        <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
+                <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
 						<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
 						<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
 						<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
 						<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
 					</ul>
+                    <div className="mobile-btm w-full py-4">
+                        <button className="w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
+                        <button className="w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
 
-          <div className="mobile-btm w-full py-4">
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
-            <div className="social-icons flex justify-around my-4">
-              <Facebook size={25} className="icon" />
-              <Instagram size={25} className="icon" />
-              <Twitter size={25} className="icon" />
-              <Youtube size={25} className="icon" />
-            </div>
-          </div>
+                        <div className="social-icons flex justify-around my-4">
+                            <Facebook size={25} className="icon" />
+                            <Instagram size={25} className="icon" />
+                            <Twitter size={25} className="icon" />
+                            <Youtube size={25} className="icon" />
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</nav>

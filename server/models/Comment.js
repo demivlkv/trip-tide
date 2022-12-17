@@ -1,11 +1,12 @@
 const { Schema } = require('mongoose');
-const moment = require('moment');
+const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema(
   {
     commentBody: {
       type: String,
-      required: true
+      required: true,
+      maxlength: 280
     },
     username: {
       type: String,
@@ -14,7 +15,7 @@ const commentSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: timestamp => moment(timestamp).fromNow()
+      get: timestamp => dateFormat(timestamp)
     }
   },
   {

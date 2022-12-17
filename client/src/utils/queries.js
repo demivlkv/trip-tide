@@ -4,7 +4,6 @@ export const QUERY_POSTS = gql`
     query posts($username: String) {
         posts(username: $username) {
             _id
-            postTitle
             postText
             createdAt
             username
@@ -15,11 +14,6 @@ export const QUERY_POSTS = gql`
                 username
                 commentBody
             }
-            likeCount
-            likes {
-                _id
-                username
-            }
         }
     }
 `;
@@ -28,7 +22,6 @@ export const QUERY_POST = gql`
     query post($id: ID!) {
         post(_id: $id) {
             _id
-            postTitle
             postText
             createdAt
             username
@@ -38,11 +31,6 @@ export const QUERY_POST = gql`
               createdAt
               username
               commentBody
-            }
-            likeCount
-            likes {
-                _id
-                username
             }
         }
     }
@@ -61,15 +49,9 @@ export const QUERY_USER = gql`
             }
             posts {
                 _id
-                postTitle
                 postText
                 createdAt
                 commentCount
-                likesCount
-                likes {
-                    _id
-                    username
-                }
             }
         }
     }
@@ -82,13 +64,8 @@ export const QUERY_ME = gql`
             username
             email
             friendCount
-            friends {
-                _id
-                username
-            }
             posts {
                 _id
-                postTitle
                 postText
                 createdAt
                 commentCount
@@ -98,12 +75,10 @@ export const QUERY_ME = gql`
                     commentBody
                     username
                 }
-                likeCount
-                likes{
-                    _id
-                    createdAt
-                    username
-                }
+            }
+            friends {
+                _id
+                username
             }
         }
     }
