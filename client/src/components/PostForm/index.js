@@ -77,7 +77,7 @@ const PostForm = () => {
             onChange={handleChange}
             className="h-[10vh] md:h-[14vh] mb-4"
         ></textarea>
-        <button>
+        <button className="primary">
           Post
         </button>
       </form>

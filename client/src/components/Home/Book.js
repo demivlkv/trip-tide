@@ -87,7 +87,7 @@ const Book = () => {
 									<input type="date" />
 								</div>
 								<div className="pt-6">
-									<button className="w-full h-[43px]">Find Your Trip</button>
+									<button className="primary w-full h-[43px]">Find Your Trip</button>
 								</div>
 							</div>
 						</form>
@@ -115,7 +115,7 @@ const Book = () => {
 										<div>{city.deal}</div>
 										<div>per person</div>
 									</div>
-									<button className="w-full mt-4">View Deal</button>
+									<button className="primary w-full mt-4">View Deal</button>
 								</div>
 							</div>
 						))}

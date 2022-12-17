@@ -1,27 +1,30 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 
-import { QUERY_POST } from '../utils/queries';
+import { QUERY_POST, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Blog';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
+import LikeButton from '../components/LikeButton';
+import DeleteButton from '../components/DeleteButton';
 
-const SinglePost = (props) => {
+const SinglePost = ({ user }) => {
   const { id: postId } = useParams();
-
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
-  
-  const post = data?.post || {};
-  
+  const post = data?.post || [];
+
   if (loading) {
     return <div>Loading...</div>;
-  }
+  } else {
+    let postMarkup;
+    const { _id, likes, likeCount } = post;
 
-  return (
+    postMarkup = (
     <Layout>
       <div className="w-full h-full">
         <div className="px-4 flex flex-col justify-center items-center">
@@ -55,6 +58,17 @@ const SinglePost = (props) => {
             <div className="card-body">
               <p>{post.postText}</p>
             </div>
+
+            <div className="mt-4 p-3 flex justify-between items-center bg-gray-100 text-gray-500 rounded text-xs md:text-sm">
+              <Link to={`/post/${post._id}`} className="flex items-center text-teal-400 hover:text-gray-500">
+                <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
+              </Link>
+
+              <LikeButton user={post.user} posts={{ _id, likes, likeCount}} />
+
+              {/* gives user the option to delete their own post */}
+              {user && post.username === user.username && (<DeleteButton postId={post._id} />)}
+            </div>
           </article>
           
           {post.commentCount > 0 && (
@@ -65,7 +79,9 @@ const SinglePost = (props) => {
         </div>
       </div>
     </Layout>
-  );
+    )
+    return postMarkup;
+  }
 };
 
 export default SinglePost;

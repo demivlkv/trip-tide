@@ -33,8 +33,8 @@
     @apply transition-all ease-in duration-300;
   }
 
-  button, button[type=submit] {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300  hover:opacity-[0.75] rounded-md py-2 px-4;
+  button.primary, button[type=submit].primary {
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300 hover:opacity-[0.75] rounded-md py-2 px-4;
   }
 }
 
@@ -151,6 +151,19 @@
   .post-form textarea,
   .comment-form textarea {
     @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+  }
+
+  /* LIKE BUTTON COMPONENT */
+  button.like-btn {
+    @apply inline-flex items-center;
+  }
+
+  .liked-heart {
+    @apply w-5 h-5 text-red-400 hover:text-red-200 mr-1 transition-all ease-in duration-300;
+  }
+
+  .unliked-heart {
+    @apply w-5 h-5 text-gray-400 hover:text-red-400 mr-1 transition-all ease-in duration-300;
   }
 }
 

@@ -19,7 +19,7 @@ const Hero = () => {
                     <input type="text" name="search" placeholder="Search destinations" className="w-[360px] md:w-[550px] text-gray-800 focus:outline-none" />
                 </div>
                 <div>
-                    <button className="rounded"><MagnifyingGlassIcon width={25} /></button>
+                    <button className="primary rounded"><MagnifyingGlassIcon width={25} /></button>
                 </div>
             </form>
         </div>

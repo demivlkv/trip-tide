@@ -41,7 +41,7 @@ const CommentForm = ({ postId }) => {
           className="h-[10vh] md:h-[14vh] mb-4"
         ></textarea>
 
-        <button className="w-full" type="submit">
+        <button className="primary w-full" type="submit">
           Submit
         </button>
       </form>
