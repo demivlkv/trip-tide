@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { TrashIcon } from '@heroicons/react/24/solid';
 import { DELETE_POST } from '../../utils/mutations';
+import { QUERY_POSTS } from '../../utils/queries';
 
 const DeleteButton = ({ postId, callback }) => {
   const [showModal, setShowModal] = useState(false);
   const [deletePost] = useMutation(DELETE_POST, {
-    update() {
+    update(proxy) {
       setShowModal(false);
+      const data = proxy.readQuery({
+        query: QUERY_POSTS
+      });
+      data.posts = data.posts.filter((p) => p._id !== postId);
+      proxy.writeQuery({ query: QUERY_POSTS, data });
+
       // remove post from cache
       if (callback) callback();
     },
     variables: { postId }
-  })
+  });
+
   return (
     <div className="flex items-center">
       <button className="inline-flex items-center">

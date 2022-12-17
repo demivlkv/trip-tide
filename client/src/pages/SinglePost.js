@@ -11,8 +11,9 @@ import CommentForm from '../components/CommentForm';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 
-const SinglePost = ({ user }) => {
+const SinglePost = (props) => {
   const { id: postId } = useParams();
+  const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
@@ -59,15 +60,20 @@ const SinglePost = ({ user }) => {
               <p>{post.postText}</p>
             </div>
 
-            <div className="mt-4 p-3 flex justify-between items-center bg-gray-100 text-gray-500 rounded text-xs md:text-sm">
-              <Link to={`/post/${post._id}`} className="flex items-center text-teal-400 hover:text-gray-500">
-                <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
-              </Link>
+            <div className="mt-4 flex justify-between items-center text-gray-500 text-xs md:text-sm">
+              <div className="inline-flex">
+                <Link to={`/post/${post._id}`} className="mr-4 flex items-center text-teal-400 hover:text-gray-500">
+                  <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
+                </Link>
 
-              <LikeButton user={post.user} posts={{ _id, likes, likeCount}} />
-
-              {/* gives user the option to delete their own post */}
-              {user && post.username === user.username && (<DeleteButton postId={post._id} />)}
+                <LikeButton user={post.user} posts={{ _id, likes, likeCount}} />
+              </div>
+              <div>
+                {/* gives user the option to delete their own post */}
+                {userData.me && post.username === userData.me.username && (
+                  <DeleteButton postId={post._id} />
+                )}
+              </div>
             </div>
           </article>
           

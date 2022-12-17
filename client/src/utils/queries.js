@@ -17,6 +17,7 @@ export const QUERY_POSTS = gql`
             }
             likeCount
             likes {
+                _id
                 username
             }
         }
@@ -40,6 +41,7 @@ export const QUERY_POST = gql`
             }
             likeCount
             likes {
+                _id
                 username
             }
         }
@@ -65,6 +67,7 @@ export const QUERY_USER = gql`
                 commentCount
                 likesCount
                 likes {
+                    _id
                     username
                 }
             }
@@ -79,6 +82,10 @@ export const QUERY_ME = gql`
             username
             email
             friendCount
+            friends {
+                _id
+                username
+            }
             posts {
                 _id
                 postTitle
@@ -91,15 +98,12 @@ export const QUERY_ME = gql`
                     commentBody
                     username
                 }
+                likeCount
                 likes{
                     _id
                     createdAt
                     username
                 }
-            }
-            friends {
-                _id
-                username
             }
         }
     }

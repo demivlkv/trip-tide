@@ -19,8 +19,8 @@ const typeDefs = gql`
         username: String
         comments: [Comment]
         commentCount: Int
-        likes: [Like]
-        likeCount: Int
+        likes: [Like]!
+        likeCount: Int!
     }
 
     type Comment {
@@ -71,11 +71,11 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addPost(postTitle: String!, postText: String!): Post
+        addPost(postTitle: String!, postText: String!): Post!
         deletePost(postId: ID!): String!
-        addComment(postId: ID!, commentBody: String!): Post
-        deleteComment(postId: ID!, commentId: ID!): Post
-        likePost(postId: ID!): Post
+        addComment(postId: ID!, commentBody: String!): Post!
+        deleteComment(postId: ID!, commentId: ID!): Post!
+        likePost(postId: ID!): Post!
         addFriend(friendId: ID!): User
         savePlace(input: PlaceInput!): User
         removePlace(placeId: String!): User

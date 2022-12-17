@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 
@@ -8,11 +8,12 @@ import LikeButton from '../LikeButton';
 import DeleteButton from '../DeleteButton';
 
 const PostList = ({ posts, posts: { _id, likes, likeCount } }) => {
-  const { username: userParam } = useParams();
-  const { data } = useQuery(QUERY_ME, {
-    variables: { username: userParam }
-  });
+  const { data } = useQuery(QUERY_ME);
   const user = data?.me || {};
+
+  function deletePostCallback() {
+    window.location.assign('/blog');
+  }
 
   return (
     <>
@@ -57,7 +58,9 @@ const PostList = ({ posts, posts: { _id, likes, likeCount } }) => {
             </div>
             <div>
               {/* gives user the option to delete their own post */}
-              {user && post.username === user.username && (<DeleteButton postId={post._id} />)}
+              {user && post.username === user.username && (
+                <DeleteButton postId={post._id} callback={deletePostCallback} />
+              )}
             </div>
           </div>
         </div>

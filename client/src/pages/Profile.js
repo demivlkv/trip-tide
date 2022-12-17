@@ -78,7 +78,7 @@ const Profile = () => {
               {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
               {!userParam && <PostForm />}
               {/* DISPLAY USER'S POSTS */}
-              <PostList posts={user.posts} title={`${user.username}'s posts...`} />
+              <PostList posts={user.posts} />
             </div>
           </div>
         </div>

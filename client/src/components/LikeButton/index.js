@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { HeartIcon } from '@heroicons/react/24/solid';
 
-import Auth from '../../utils/auth';
 import { LIKE_POST } from '../../utils/mutations';
 
 const LikeButton = ({ user, posts: { _id, likeCount, likes } }) => {
   const [liked, setLiked] = useState(false);
+
     useEffect(() => {
       if (user && likes.find(like => like.username === user.username)) {
         setLiked(true);
@@ -20,7 +20,7 @@ const LikeButton = ({ user, posts: { _id, likeCount, likes } }) => {
     });
 
     // if user is logged in, give option to like a post; else, like button disabled
-    const likeButton = user && Auth.loggedIn() ? (
+    const likeButton = user ? (
       liked ? (
         <HeartIcon className="liked-heart" />
       ) : (
