@@ -55,7 +55,7 @@ const PostList = ({ post: { _id, username, postTitle, postText, createdAt, comme
             </div>
             <div>
               {/* gives user the option to delete their own post */}
-              {user && username === user.username && (
+              {user && user.username === username && (
                 <DeleteButton postId={_id} callback={deletePostCallback} />
               )}
             </div>

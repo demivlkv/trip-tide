@@ -13,7 +13,7 @@ import DeleteButton from '../components/DeleteButton';
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data: user } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
@@ -66,11 +66,11 @@ const SinglePost = (props) => {
                     <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
                   </Link>
 
-                  <LikeButton user={userData.user} post={{ _id, likes, likeCount}} />
+                  <LikeButton user={user} post={{ _id, likes, likeCount}} />
                 </div>
                 <div>
                   {/* gives user the option to delete their own post */}
-                  {userData && post.username === userData.username && (
+                  {user && post.username === user.username && (
                     <DeleteButton postId={post._id} />
                   )}
                 </div>
