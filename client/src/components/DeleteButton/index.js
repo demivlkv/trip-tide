@@ -58,21 +58,17 @@ const DeleteButton = ({ postId, callback }) => {
                                         
                       <div className="items-center gap-2 mt-3 sm:flex">
                         <button
-                            className="w-full mt-2 p-2.5 flex-1 text-white bg-gradient-to-br from-pink-600 to-orange-400 hover:opacity-70 rounded-md outline-none ring-offset-2 ring-red-600 focus:ring-2 transition-all ease-in duration-300"
-                            onClick={() =>
-                                setShowModal(false)
-                            }
-                            onConfirm={deletePost}
+                          className="w-full mt-2 p-2.5 flex-1 text-white bg-gradient-to-br from-pink-600 to-orange-400 hover:opacity-70 rounded-md outline-none ring-offset-2 ring-red-600 focus:ring-2 transition-all ease-in duration-300"
+                          onClick={() => setShowModal(false)}
+                          onConfirm={deletePost}
                         >
-                            Delete
+                          Delete
                         </button>
                         <button
-                            className="w-full mt-2 p-2.5 flex-1 text-gray-800 hover:opacity-70 rounded-md outline-none border ring-offset-2 ring-teal-300 focus:ring-2 transition-all ease-in duration-300"
-                            onClick={() =>
-                                setShowModal(false)
-                            }
+                          className="w-full mt-2 p-2.5 flex-1 text-gray-800 hover:opacity-70 rounded-md outline-none border ring-offset-2 ring-teal-300 focus:ring-2 transition-all ease-in duration-300"
+                          onClick={() => setShowModal(false)}
                         >
-                            Cancel
+                          Cancel
                         </button>
                       </div>
                     </div>

@@ -13,10 +13,11 @@ import DeleteButton from '../components/DeleteButton';
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
-  const { data: user } = useQuery(QUERY_ME);
+  const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
+  const user = userData?.me || {};
   const post = data?.post || [];
 
   if (loading) {

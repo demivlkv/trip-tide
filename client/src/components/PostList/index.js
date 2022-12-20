@@ -8,7 +8,8 @@ import LikeButton from '../LikeButton';
 import DeleteButton from '../DeleteButton';
 
 const PostList = ({ post: { _id, username, postTitle, postText, createdAt, commentCount, likes, likeCount } }) => {
-  const { data: user } = useQuery(QUERY_ME);
+  const { data } = useQuery(QUERY_ME);
+  const user = data?.me || {};
 
   function deletePostCallback() {
     window.location.assign('/blog');
