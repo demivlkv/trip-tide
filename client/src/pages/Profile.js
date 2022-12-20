@@ -19,6 +19,7 @@ const Profile = () => {
   });
   
   const user = data?.me || data?.user || {};
+  const posts = data?.me.posts || {};
 
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -78,10 +79,10 @@ const Profile = () => {
               {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
               {!userParam && <PostForm />}
               {/* DISPLAY USER'S POSTS */}
-              {userParam &&
-                userParam.map((post) =>
+              {posts &&
+                posts.map((post) =>
                   <div key={post._id}>
-                    <PostList post={post.username} />
+                    <PostList post={post} />
                   </div>
                 )}
             </div>
