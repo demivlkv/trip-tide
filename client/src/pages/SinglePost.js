@@ -11,7 +11,7 @@ import CommentForm from '../components/CommentForm';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 
-const SinglePost = (props) => {
+const SinglePost = () => {
   const { id: postId } = useParams();
   const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {

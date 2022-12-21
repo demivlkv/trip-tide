@@ -140,7 +140,7 @@
 
   /* POST & COMMENT FORM COMPONENT */
   .post-form {
-    @apply w-full p-4 flex flex-col justify-center items-center;
+    @apply w-full flex flex-col justify-center items-center;
   }
 
   .comment-form {

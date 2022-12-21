@@ -65,7 +65,13 @@ export const QUERY_USER = gql`
                 postText
                 createdAt
                 commentCount
-                likesCount
+                comments {
+                    _id
+                    createdAt
+                    commentBody
+                    username
+                }
+                likeCount
                 likes {
                     _id
                     username

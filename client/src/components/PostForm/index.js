@@ -6,9 +6,8 @@ import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 const PostForm = () => {
   const [postTitle, setTitle] = useState('');
   const [postText, setText] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
   
-  const [addPost, { error }] = useMutation(ADD_POST, {
+  const [addPost] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
 
       try {
@@ -32,13 +31,6 @@ const PostForm = () => {
     }
   });
 
-  const handleChange = event => {
-    if (event.target.value.length <= 1000) {
-      setText(event.target.value);
-      setCharacterCount(event.target.value.length);
-    }
-  };
-
   const handleFormSubmit = async event => {
     event.preventDefault();
 
@@ -50,20 +42,22 @@ const PostForm = () => {
       // set clear form value
       setTitle('');
       setText('');
-      setCharacterCount(0);
     } catch (e) {
       console.log(e);
     }
   };
 
   return (
+    <div className="w-full px-1 flex items-center">
+      <div className="w-20">
+        <img
+          src="https://randomuser.me/api/portraits/women/18.jpg"
+          alt="user icon"
+          className="w-14 h-14 rounded-full"
+        />
+      </div>
     <div className="post-form">
-      <p className={`m-0 ${characterCount === 1000 || error ? 'text-blue-400' : ''}`}>
-        Character Count: {characterCount}/1000
-        {error && <span className="mt-4 pl-2">Something went wrong...</span>}
-      </p>
-
-      <form className="w-full md:w-[40vw] flex flex-col justify-center" onSubmit={handleFormSubmit}>
+      <form className="w-full flex flex-col justify-center" onSubmit={handleFormSubmit}>
         <label className="block">Title</label>
 				<input
           type="text"
@@ -72,15 +66,16 @@ const PostForm = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
-            placeholder="Post here"
+            placeholder="What's on your mind..."
             value={postText}
-            onChange={handleChange}
-            className="h-[10vh] md:h-[14vh] mb-4"
+            onChange={(e) => setText(e.target.value)}
+            className="h-[5vh] mb-4"
         ></textarea>
         <button className="primary">
           Post
         </button>
       </form>
+    </div>
     </div>
   );
 };

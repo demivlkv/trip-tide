@@ -19,22 +19,21 @@ const Blog = () => {
           <h1>Blog</h1>
           <h2>Turning travel passions into travel plans</h2>
         </div>
-        {Auth.loggedIn() && (
-          <div className="mb-8">
-            <PostForm />
-          </div>
-        )}
-        <div className={`box-border max-w-screen-xl mx-4 mb-8 columns-1 md:columns-2 lg:columns-3 ${Auth.loggedIn()} && ''}`}>
+        <div className="box-border max-w-screen-xl mx-4 mb-8 columns-1 md:columns-2 lg:columns-3">
         {loading ? (
           <div>Loading...</div>
         ) : (
           <>
-          {posts &&
-            posts.map((post) =>
-              <div key={post._id}>
-                <PostList post={post} />
-              </div>
+          {Auth.loggedIn() && (
+            <div className="mb-8">
+              <PostForm />
+            </div>
           )}
+          {posts.map((post) => (
+            <div key={post._id}>
+              <PostList post={post} />
+            </div>
+          ))}
           </>
         )}
         </div>
