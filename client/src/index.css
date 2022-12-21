@@ -185,5 +185,5 @@
 }
 
 .profile .btn {
-  @apply py-1 px-3 flex items-center text-sm text-gray-800 bg-gradient-to-t from-white to-white outline outline-2 outline-offset-0 outline-gray-800 hover:outline-teal-200 rounded-sm;
+  @apply py-1 px-3 flex items-center text-xs text-gray-800 bg-gradient-to-t from-white to-white outline outline-2 outline-offset-0 outline-gray-800 hover:text-gray-500 hover:outline-teal-200 rounded-sm transition-all ease-in duration-300;
 }

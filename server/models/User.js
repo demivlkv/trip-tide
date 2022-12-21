@@ -70,7 +70,7 @@ userSchema.virtual('friendCount').get(function () {
 // GET `placeCount` with the number of saved places
 userSchema.virtual('placeCount').get(function () {
 	return this.savedPlaces.length;
-  });
+});
 
 const User = model('User', userSchema);
 
