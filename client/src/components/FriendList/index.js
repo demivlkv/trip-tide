@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const FriendList = ({ friendCount, username, friends }) => {
   return (
     <>
-      <div className="w-full mt-12 p-3 flex flex-wrap items-center rounded-lg">
+      <div className="w-full p-3 flex flex-wrap items-center">
         <div className="w-24">
           <img
             src="https://randomuser.me/api/portraits/women/18.jpg"

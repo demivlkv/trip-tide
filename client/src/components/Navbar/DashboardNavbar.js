@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 // import icons
 import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
-const LightNavbar = () => {
+const DarkNavbar = () => {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
 
-		const logout = event => {
-			event.preventDefault();
-			Auth.logout();
-		};
+	const logout = event => {
+		event.preventDefault();
+		Auth.logout();
+	};
 
 	return (
 		<nav name="home" className="navbar">
@@ -30,26 +30,26 @@ const LightNavbar = () => {
 				</div>
 
 				<ul className="hidden md:flex">
-					<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
-					<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
-					<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
-					<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
+					<Link to="/blog"><li>Destinations</li></Link>
+					<Link to="#"><li>Cities</li></Link>
+					<Link to="#"><li>Travel Tips</li></Link>
+					<Link to="#"><li>Resources</li></Link>
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
-				<ul className="hidden md:flex justify-center items-center">
+					<ul className="hidden md:flex justify-center items-center">
 					{Auth.loggedIn() ? (
 						<>
-							<a href="/profile"><li><UserCircleIcon width={30} /></li></a>
-							<a href="/" onClick={logout}><li className="logout-light">Logout</li></a>
+							<Link to="/profile"><li><UserCircleIcon width={30} /></li></Link>
+							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
 						</>
 					) : (
 						<>
-							<a href="/login"><li>Login</li></a>
-							<a href="/signup"><li>Signup</li></a>
+							<Link to="/login"><li>Login</li></Link>
+							<Link to="/signup"><li>Signup</li></Link>
 						</>
 					)}
-				</ul>
+					</ul>
 				</div>
 
 				{/* HAMBURGER MENU */}
@@ -59,26 +59,26 @@ const LightNavbar = () => {
 
         <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
-						<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
-						<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
-						<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
-						<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
+						<Link to="/blog"><li>Destinations</li></Link>
+						<Link to="#"><li>Cities</li></Link>
+						<Link to="#"><li>Travel Tips</li></Link>
+						<Link to="#"><li>Resources</li></Link>
 					</ul>
-
           <div className="mobile-btm w-full py-4">
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
+
             <div className="social-icons flex justify-around my-4">
               <Facebook size={25} className="icon" />
               <Instagram size={25} className="icon" />
               <Twitter size={25} className="icon" />
               <Youtube size={25} className="icon" />
             </div>
-          </div>
+        	</div>
 				</div>
 			</div>
 		</nav>
 	);
 };
 
-export default LightNavbar;
+export default DarkNavbar;

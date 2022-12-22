@@ -22,14 +22,14 @@ const CommentForm = ({ postId }) => {
     <div className="comment-form my-8">
       <form className="mb-8 flex flex-col justify-center" onSubmit={handleFormSubmit}>
         <textarea
-          placeholder="Leave a comment to this post..."
+          placeholder="Write a comment..."
           value={commentBody}
           onChange={(e) => setBody(e.target.value)}
-          className="h-[10vh] md:h-[14vh] mb-4"
+          className="h-[5vh] mb-4"
         ></textarea>
 
         <button className="primary w-full" type="submit">
-          Submit
+          Post
         </button>
       </form>
     </div>

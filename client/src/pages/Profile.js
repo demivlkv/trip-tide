@@ -40,7 +40,7 @@ const Profile = () => {
     return <div>Loading...</div>;
   };
 
-  if (!user?.username) {
+  if (!user?.username || !Auth.loggedIn()) {
     return (
       <div className="w-full h-screen flex flex-col justify-center items-center px-8">
         <h1 className="mb-4">Error</h1>
@@ -53,24 +53,7 @@ const Profile = () => {
   return (
     <Layout>
       <div className="w-full h-full">
-        <div className="profile w-full max-w-screen-xl mx-auto pt-[100px] flex flex-col md:flex-row justify-center items-start">
-          {/* DISPLAY USER'S FOLLOWERS */}
-          <div className="w-80">
-            <FriendList
-              username={user.username}
-              friendCount={user.friendCount}
-              friends={user.friends}
-            />
-            <div className="py-2">
-              {userParam && (
-                <button onClick={handleClick} className="btn">
-                  <div className="w-full h-full inline-flex items-center font-normal">
-                    <UserPlus width={13} className="mr-1" /> Follow
-                  </div>
-                </button>
-              )}
-            </div>
-          </div>
+        <div className="profile w-full max-w-screen-xl mx-auto pt-[120px] flex flex-col md:flex-row justify-center items-start">
           <div className="w-full max-w-screen-md py-8 px-4">
             {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
             {!userParam && <PostForm />}
@@ -80,6 +63,23 @@ const Profile = () => {
                 <PostList post={post} />
               </div>
             ))}
+          </div>
+          {/* DISPLAY USER'S FOLLOWERS */}
+          <div className="w-80 mt-12 bg-gray-50 flex flex-wrap items-center rounded-lg shadow-lg">
+            <FriendList
+              username={user.username}
+              friendCount={user.friendCount}
+              friends={user.friends}
+            />
+            {userParam && (
+              <div className="pb-4 px-4">
+                <button onClick={handleClick} className="btn">
+                  <div className="w-full h-full inline-flex items-center font-normal">
+                    <UserPlus width={13} className="mr-1" /> Follow
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

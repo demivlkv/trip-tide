@@ -49,10 +49,6 @@
   }
 
   .navbar li.logout {
-    @apply px-4 hover:text-gray-500 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
-  }
-
-  .navbar li.logout-light {
     @apply px-4 hover:text-gray-200 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
   }
 
@@ -150,12 +146,12 @@
   .post-form input,
   .post-form textarea,
   .comment-form textarea {
-    @apply w-full my-2 py-2 px-3 bg-gray-50 rounded-md border border-gray-200;
+    @apply w-full my-2 py-2 px-4 bg-gray-50 border border-gray-200 rounded-3xl;
   }
 
   /* LIKE BUTTON COMPONENT */
   button.like-btn {
-    @apply inline-flex items-center text-gray-400 hover:text-red-400 transition-all ease-in duration-300;
+    @apply inline-flex items-center text-gray-400 hover:text-red-200 transition-all ease-in duration-300;
   }
 
   .liked-heart {

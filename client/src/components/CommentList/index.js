@@ -5,7 +5,7 @@ const CommentList = ({ comments }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
         <div className="mt-10">
-            <h2>Comments</h2>
+            <h2 className="text-white">Comments</h2>
         </div>
         <div className="mt-6">
             {comments &&
@@ -20,7 +20,7 @@ const CommentList = ({ comments }) => {
                             />
                         </div>
                         <div className="w-full">
-                            <div className="bg-gray-100 p-4 rounded-lg">
+                            <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
                                 <Link
                                     to={`/profile/${comment.username}`}
                                     className="font-semibold text-teal-400 hover:text-gray-500 uppercase tracking-widest"
@@ -31,7 +31,7 @@ const CommentList = ({ comments }) => {
                                     {comment.commentBody}
                                 </div>
                             </div>
-                            <p className="mt-2 pl-4 text-gray-400 text-sm">{comment.createdAt}</p>
+                            <p className="mt-2 pl-4 text-gray-500 text-xs md:text-sm mix-blend-difference">{comment.createdAt}</p>
                         </div>
                     </div>
                 </article>

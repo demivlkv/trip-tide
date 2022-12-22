@@ -17,7 +17,7 @@ const PostList = ({ post: { _id, username, postTitle, postText, createdAt, comme
 
   return (
     <>
-      <article key={_id} className="bg-gray-50 mx-1 my-4 p-4 break-inside-avoid flex flex-col rounded-md shadow-lg hover:shadow-slate-400 transition-all ease-in duration-300">
+      <article key={_id} className="bg-gray-50 mx-1 my-4 p-4 break-inside-avoid flex flex-col rounded-lg shadow-lg hover:shadow-slate-400 transition-all ease-in duration-300">
         <div className="flex items-center">
           <div className="mr-4">
             <img

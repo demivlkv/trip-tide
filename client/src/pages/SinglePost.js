@@ -5,7 +5,7 @@ import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 
 import { QUERY_POST, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
-import Layout from '../components/Layout/Blog';
+import Layout from '../components/Layout/Dashboard';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import LikeButton from '../components/LikeButton';
@@ -30,7 +30,7 @@ const SinglePost = () => {
       <Layout>
         <div className="w-full h-full">
           <div className="px-4 flex flex-col justify-center items-center">
-            <article className="max-w-screen-lg mt-[130px] bg-gray-50 m-4 p-4 flex flex-col rounded-md shadow-lg">
+            <article className="max-w-screen-md mt-[130px] bg-gray-50 m-4 p-4 flex flex-col rounded-md shadow-lg">
               <div className="w-full flex items-center">
                 <div className="mr-4">
                   <img
