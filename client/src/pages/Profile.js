@@ -7,7 +7,7 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
-import FriendList from '../components/FriendList';
+import UserWidget from '../components/UserWidget';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
@@ -64,10 +64,12 @@ const Profile = () => {
               </div>
             ))}
           </div>
-          {/* DISPLAY USER'S FOLLOWERS */}
+          {/* DISPLAY USER INFO */}
           <div className="w-80 mt-12 bg-gray-50 flex flex-wrap items-center rounded-lg shadow-lg">
-            <FriendList
+            <UserWidget
               username={user.username}
+              location={user.location}
+              description={user.description}
               friendCount={user.friendCount}
               friends={user.friends}
             />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 // import icons
-import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
 const DarkNavbar = () => {
@@ -30,17 +30,18 @@ const DarkNavbar = () => {
 				</div>
 
 				<ul className="hidden md:flex">
-					<Link to="/blog"><li>Destinations</li></Link>
-					<Link to="#"><li>Cities</li></Link>
-					<Link to="#"><li>Travel Tips</li></Link>
-					<Link to="#"><li>Resources</li></Link>
+					<Link to="/blog"><li>#destinations</li></Link>
+					<Link to="#"><li>#cities</li></Link>
+					<Link to="#"><li>#travel tips</li></Link>
+					<Link to="#"><li>#resources</li></Link>
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
 					<ul className="hidden md:flex justify-center items-center">
 					{Auth.loggedIn() ? (
 						<>
-							<Link to="/profile"><li><UserCircleIcon width={30} /></li></Link>
+							<a href="/blog"><li>Blog</li></a>
+							<a href="/profile"><li className="mr-2">Profile</li></a>
 							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
 						</>
 					) : (
@@ -59,16 +60,16 @@ const DarkNavbar = () => {
 
         <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
 					<ul className="my-4">
-						<Link to="/blog"><li>Destinations</li></Link>
-						<Link to="#"><li>Cities</li></Link>
-						<Link to="#"><li>Travel Tips</li></Link>
-						<Link to="#"><li>Resources</li></Link>
+						<Link to="/blog"><li>#destinations</li></Link>
+						<Link to="#"><li>#cities</li></Link>
+						<Link to="#"><li>#travel tips</li></Link>
+						<Link to="#"><li>#resources</li></Link>
 					</ul>
           <div className="mobile-btm w-full py-4">
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
 
-            <div className="social-icons flex justify-around my-4">
+            <div className="social-icons w-1/3 mx-auto flex justify-around my-4">
               <Facebook size={25} className="icon" />
               <Instagram size={25} className="icon" />
               <Twitter size={25} className="icon" />

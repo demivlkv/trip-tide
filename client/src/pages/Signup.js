@@ -4,10 +4,10 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
-import { UserIcon, AtSymbolIcon, LockClosedIcon, ArrowLongRightIcon } from '@heroicons/react/24/solid';
+import { UserIcon, AtSymbolIcon, LockClosedIcon, ArrowLongRightIcon, MapPinIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
 
 const Signup = () => {
-	const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+	const [formState, setFormState] = useState({ username: '', email: '', password: '', location: '', description: '' });
 	const [addUser, { error }] = useMutation(ADD_USER);
 
 	// update state based on form input changes
@@ -79,6 +79,32 @@ const Signup = () => {
 									type="password"
 									id="password"
 									value={formState.password}
+									onChange={handleChange}
+								/>
+							</div>
+							<div className="relative">
+								<div className="icons">
+									<MapPinIcon width={20} />
+								</div>
+								<input
+									placeholder="Location"
+									name="location"
+									type="location"
+									id="location"
+									value={formState.location}
+									onChange={handleChange}
+								/>
+							</div>
+							<div className="relative">
+								<div className="icons">
+									<BriefcaseIcon width={20} />
+								</div>
+								<input
+									placeholder="A little bio about yourself"
+									name="description"
+									type="description"
+									id="description"
+									value={formState.description}
 									onChange={handleChange}
 								/>
 							</div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import Auth from '../../utils/auth';
 // import icons
-import { MagnifyingGlassIcon, UserCircleIcon, Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
 const HomeNavbar = () => {
@@ -40,7 +40,8 @@ const HomeNavbar = () => {
 				<ul className="hidden md:flex justify-center items-center">
 					{Auth.loggedIn() ? (
 						<>
-							<a href="/profile"><li><UserCircleIcon width={30} /></li></a>
+							<a href="/blog"><li>Blog</li></a>
+							<a href="/profile"><li className="mr-2">Profile</li></a>
 							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
 						</>
 					) : (
@@ -68,7 +69,7 @@ const HomeNavbar = () => {
           <div className="mobile-btm w-full py-4">
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
             <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
-            <div className="social-icons flex justify-around my-4">
+            <div className="social-icons w-1/3 mx-auto flex justify-around my-4">
               <Facebook size={25} className="icon" />
               <Instagram size={25} className="icon" />
               <Twitter size={25} className="icon" />
