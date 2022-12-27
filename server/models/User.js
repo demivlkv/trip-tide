@@ -23,14 +23,6 @@ const userSchema = new Schema(
 			required: true,
 			minlength: 5,
 		},
-		location: {
-			type: String,
-			required: false
-		},
-		description: {
-			type: String,
-			required: false
-		},
 		posts: [
 			{
 				type: Schema.Types.ObjectId,
@@ -46,6 +38,8 @@ const userSchema = new Schema(
 				ref: 'User',
 			},
 		],
+		location: String,
+		description: String,
 		savedPlaces: [placeSchema]
 	},
 	{

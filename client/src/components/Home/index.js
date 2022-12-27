@@ -1,15 +1,17 @@
 import React from 'react';
 import Navbar from '../Navbar/HomeNavbar';
-import Hero from '../Home/Hero';
-import Book from '../Home/Book';
-import Discover from '../Home/Discover';
-import About from '../Home/About';
+import Hero from './Hero';
+import Search from './Search';
+import Book from './Book';
+import Discover from './Discover';
+import About from './About';
 
 const Home = () => {
   return (
     <>
         <Navbar />
         <Hero />
+        <Search />
         <Book />
         <Discover />
         <About />

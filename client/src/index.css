@@ -48,8 +48,16 @@
     @apply px-4 hover:text-teal-200 cursor-pointer transition-all ease-in duration-500;
   }
 
-  .navbar li.logout {
-    @apply px-4 hover:text-gray-200 py-2 outline outline-2 outline-offset-0 hover:outline-teal-200 rounded-sm;
+  .navbar li.login-btn {
+    @apply mx-3 px-4 py-2 rounded-3xl hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
+  }
+
+  .navbar li.signup-btn {
+    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
+  }
+
+  .navbar li.logout-btn {
+    @apply px-4 py-2 rounded-3xl outline outline-2 outline-offset-0 hover:outline-teal-200;
   }
 
   .mobile-menu {
@@ -71,6 +79,10 @@
   /* HERO COMPONENT */
   .hero input {
     @apply py-2 px-3 bg-transparent text-lg rounded-md;
+  }
+
+  .hero button {
+    @apply mx-3 px-4 py-2 rounded-3xl hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
   }
 
   /* BOOK COMPONENT */
@@ -151,7 +163,7 @@
 
   /* LIKE BUTTON COMPONENT */
   button.like-btn {
-    @apply inline-flex items-center text-gray-400 hover:text-red-200 transition-all ease-in duration-300;
+    @apply inline-flex items-center hover:text-red-200 transition-all ease-in duration-300;
   }
 
   .liked-heart {

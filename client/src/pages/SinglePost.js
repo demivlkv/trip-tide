@@ -61,9 +61,9 @@ const SinglePost = () => {
                 <p>{post.postText}</p>
               </div>
 
-              <div className="mt-4 flex justify-between items-center text-gray-500 text-xs md:text-sm">
+              <div className="mt-4 pt-4 flex justify-between items-center text-gray-400 text-xs md:text-sm border-t border-gray-200">
                 <div className="inline-flex">
-                  <Link to={`/post/${post._id}`} className="mr-4 flex items-center text-teal-400 hover:text-gray-500">
+                  <Link to={`/post/${post._id}`} className="mr-4 flex items-center hover:text-teal-400">
                     <ChatBubbleLeftRightIcon width={20} className="mr-1" /> {post.commentCount} {post.commentCount === 1 ? 'comment' : 'comments' }
                   </Link>
 

@@ -37,7 +37,7 @@ const LikeButton = ({ post: { _id, likeCount, likes } }) => {
     <div className="flex items-center">
       <button className="like-btn" onClick={likePost}>
         {likeButton}
-        {likeCount}
+        {likeCount} {likeCount === 1 ? 'like' : 'likes' }
       </button>
     </div>
   );

@@ -40,14 +40,15 @@ const DarkNavbar = () => {
 					<ul className="hidden md:flex justify-center items-center">
 					{Auth.loggedIn() ? (
 						<>
-							<a href="/blog"><li>Blog</li></a>
-							<a href="/profile"><li className="mr-2">Profile</li></a>
-							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
+							<Link to="/blog"><li>Blog</li></Link>
+							<Link to="/profile"><li className="mr-2">Profile</li></Link>
+							<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
 						</>
 					) : (
 						<>
-							<Link to="/login"><li>Login</li></Link>
-							<Link to="/signup"><li>Signup</li></Link>
+							<Link to="/blog"><li>Blog</li></Link>
+							<Link to="/login"><li className="login-btn">Login</li></Link>
+							<Link to="/signup"><li className="signup-btn">Signup</li></Link>
 						</>
 					)}
 					</ul>

@@ -31,6 +31,7 @@ const HomeNavbar = () => {
 
 				<ul className="hidden md:flex">
 					<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
+					<Link to="search" smooth={true} duration={500}><li>Search</li></Link>
 					<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
 					<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
 					<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
@@ -42,12 +43,13 @@ const HomeNavbar = () => {
 						<>
 							<a href="/blog"><li>Blog</li></a>
 							<a href="/profile"><li className="mr-2">Profile</li></a>
-							<a href="/" onClick={logout}><li className="logout">Logout</li></a>
+							<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
 						</>
 					) : (
 						<>
-							<a href="/login"><li>Login</li></a>
-							<a href="/signup"><li>Signup</li></a>
+							<a href="/blog"><li>Blog</li></a>
+							<a href="/login"><li className="login-btn">Login</li></a>
+							<a href="/signup"><li className="signup-btn">Signup</li></a>
 						</>
 					)}
 				</ul>
