@@ -8,14 +8,15 @@ import Map from './Search/Map';
 const Search = () => {
 	const [places, setPlaces] = useState([]);
   const [filteredPlaces, setFilteredPlaces] = useState([]);
-  const [nearbyType, setNearbyType] = useState('restaurants');
-  const [rating, setRating] = useState('');
+  const [type, setType] = useState('attractions');
+  const [rating, setRating] = useState(0);
 
 	const [coords, setCoords] = useState({});
 	const [bounds, setBounds] = useState({});
 
   const [loading, setLoading] = useState(false);
   const [childClicked, setChildClicked] = useState(null);
+  const [autocomplete, setAutocomplete] = useState(null);
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -31,7 +32,7 @@ const Search = () => {
     if (bounds.sw && bounds.ne) {
       setLoading(true);
 
-      getPlaceData(nearbyType, bounds.sw, bounds.ne)
+      getPlaceData(type, bounds.sw, bounds.ne)
         .then((data) => {
           console.log(data);
           setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
@@ -39,25 +40,35 @@ const Search = () => {
           setLoading(false);
       })
     }
-	}, [nearbyType, bounds]);
+	}, [type, bounds]);
+
+  const onLoad = (autoC) => setAutocomplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoords({ lat, lng });
+  };
 
   return (
-    <div name="search" className="search w-full h-full md:h-screen relative p-8">
+    <div name="search" className="search w-full h-full md:h-screen relative p-4">
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <SearchBar setCoords={setCoords} />
-        <div className="w-full flex flex-wrap flex-row-reverse md:flex-nowrap md:flex-row justify-center items-center">
-          <div className="w-1/2">
+        <h1>Let's Go</h1>
+        <SearchBar onLoad={onLoad} onPlaceChanged={onPlaceChanged} />
+        <div className="w-full flex flex-wrap flex-row-reverse md:flex-nowrap md:flex-row justify-center items-start">
+          <div className="w-full max-w-md">
             <List
               places={filteredPlaces.length ? filteredPlaces : places}
               childClicked={childClicked}
               loading={loading}
-              nearbyType={nearbyType}
-              setNearbyType={setNearbyType}
+              type={type}
+              setType={setType}
               rating={rating}
               setRating={setRating}
             />
           </div>
-          <div className="w-full mx-4">
+          <div className="w-full max-w-5xl">
             <Map
               setCoords={setCoords}
               setBounds={setBounds}
@@ -69,7 +80,7 @@ const Search = () => {
         </div>
 			</div>
     </div>
-  )
-}
+  );
+};
 
 export default Search;

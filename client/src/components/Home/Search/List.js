@@ -2,16 +2,15 @@ import React, { useState, useEffect, createRef } from 'react';
 
 import PlaceDetails from './PlaceDetails';
 
-const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClicked, loading }) => {
+const List = ({ places, type, setType, rating, setRating, childClicked, loading }) => {
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
-    setElRefs(Array(places?.length).fill().map((_, i) => elRefs[i] || createRef()));
+    setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
   }, [places])
 
   return (
     <div className="list">
-      <h2>Restaurants, Hotels, & Attractions</h2>
       {loading ? (
         <div>
           Loading...
@@ -19,16 +18,16 @@ const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClick
       ) : (
         <>
       {/* OPTIONS TO SHOW NEARBY PLACES */}
-      <form className="w-full flex items-center">
-        <label for="nearby" className="">Restaurants, Hotels, & Attractions Near You</label>
-        <select name="nearby" value={nearbyType} onChange={(e) => setNearbyType(e.target.value)}>
+      <form className="w-full mb-8 flex items-center">
+        <label for="nearby">Attractions, Restaurants, & Hotels Near You</label>
+        <select name="nearby" value={type} onChange={(e) => setType(e.target.value)}>
+          <option value="attractions">Attractions</option>
           <option value="restaurants">Restaurants</option>
           <option value="hotels">Hotels</option>
-          <option value="attractions">Attractions</option>
         </select>
       </form>
       {/* OPTIONS FOR SHOW PLACES BY RATING */}
-      <form className="w-full flex items-center">
+      <form className="w-full mb-8 flex items-center">
         <label for="nearby">Rating</label>
         <select name="nearby" value={rating} onChange={(e) => setRating(e.target.value)}>
           <option value={0}>All</option>
@@ -38,9 +37,9 @@ const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClick
         </select>
       </form>
       {/* DISPLAY RESULTS */}
-      <div>
+      <div className="w-full">
         {places?.map((place, i) => (
-          <div key={i} refProp={elRefs[i]}>
+          <div key={i} ref={elRefs[i]}>
             <PlaceDetails
               place={place}
               selected={Number(childClicked) === i}

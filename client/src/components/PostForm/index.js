@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { X } from 'react-feather';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const PostForm = () => {
+  const [showModal, setShowModal] = useState(false);
   const [postTitle, setTitle] = useState('');
   const [postText, setText] = useState('');
   
@@ -42,6 +44,7 @@ const PostForm = () => {
       // set clear form value
       setTitle('');
       setText('');
+      setShowModal(false);
     } catch (e) {
       console.log(e);
     }
@@ -56,26 +59,46 @@ const PostForm = () => {
           className="w-14 h-14 rounded-full"
         />
       </div>
-    <div className="post-form">
-      <form className="w-full flex flex-col justify-center" onSubmit={handleFormSubmit}>
-        <label className="block">Title</label>
-				<input
-          type="text"
-          placeholder="Enter title"
-          value={postTitle}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <textarea
-            placeholder="What's on your mind..."
-            value={postText}
-            onChange={(e) => setText(e.target.value)}
-            className="h-[5vh] mb-4"
-        ></textarea>
-        <button className="primary">
-          Post
-        </button>
-      </form>
-    </div>
+      <div className="post-form">
+        <input placeholder="What's on your mind..." onClick={() => setShowModal(true)} className="input" />
+        <div className="flex items-center justify-center">
+        {showModal ? (
+          <>
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div
+                className="fixed inset-0 w-full h-full bg-black opacity-40"
+                onClick={() => setShowModal(false)}
+              ></div>
+              <div className="flex items-center min-h-screen px-4 py-8">
+                <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-lg shadow-lg">
+                  <div className="mb-4 flex justify-end items-center text-gray-400 hover:text-teal-300 hover:cursor-pointer transition-all ease-in duration-300" onClick={() => setShowModal(false)}>
+                    <X width={25} className="inline-flex items-center" />
+                  </div>
+                  <h1 className="text-3xl">Create New Post</h1>
+                  <form className="w-full px-4 pb-2 flex flex-col justify-center" onSubmit={handleFormSubmit}>
+                    <input
+                      type="text"
+                      placeholder="Enter title"
+                      value={postTitle}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <textarea
+                        placeholder="What's on your mind..."
+                        value={postText}
+                        onChange={(e) => setText(e.target.value)}
+                        className="h-[14vh] mb-4"
+                    ></textarea>
+                    <button className="primary mt-2">
+                      Post
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : null}
+        </div>
+      </div>
     </div>
   );
 };

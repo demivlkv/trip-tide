@@ -2,8 +2,8 @@ import React from 'react';
 
 const About = () => {
 	return (
-		<div name="about" className="about w-full h-full md:h-screen p-8">
-			<div className="w-full md:max-w-screen-lg h-full mx-auto flex flex-col justify-center items-center">
+		<div name="about" className="about w-full h-full md:h-screen">
+			<div className="relative w-full md:max-w-screen-lg h-full mx-auto p-8 flex flex-col justify-center items-center z-[2]">
 				<h1>
           Bringing the world to you
 				</h1>
@@ -15,7 +15,6 @@ const About = () => {
 					next getaway. Our core belief is that everyone should travel, and it
 					is vital that we make travel accessible to everyone.
 				</p>
-
 				<div className="images grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4">
 					<img
 						src="https://images.unsplash.com/photo-1633321088355-d0f81134ca3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"

@@ -156,14 +156,18 @@
     @apply w-full flex flex-col justify-center items-center;
   }
 
-  .comment-form {
-    @apply w-full px-4 md:w-[50vw] md:max-w-2xl;
+  .comment-form input {
+    @apply w-full my-2 py-2 px-4 bg-gray-50 border border-gray-200 rounded-3xl;
+  }
+
+  .post-form input.input {
+    @apply w-full my-2 py-2 px-4 bg-gray-50 border border-gray-200 rounded-3xl;
   }
 
   .post-form input,
   .post-form textarea,
   .comment-form textarea {
-    @apply w-full my-2 py-2 px-4 bg-gray-50 border border-gray-200 rounded-3xl;
+    @apply w-full my-2 py-2 px-4 bg-gray-50 border border-gray-200 rounded-lg;
   }
 
   /* LIKE BUTTON COMPONENT */
@@ -185,11 +189,11 @@
   @apply w-full max-w-[400px] bg-gray-50 py-6 px-8 flex flex-col justify-center items-center rounded-md drop-shadow-lg z-[1];
 }
 
-.signup .icons, .login .icons {
+.signup .icons, .login .icons, .search-bar .icons {
   @apply inline-flex items-center justify-center absolute left-1 top-0 h-full w-10 text-sky-600;
 }
 
-.signup input, .login input {
+.signup input, .login input, .search-bar input {
   @apply w-full bg-transparent my-2 py-3 pl-10 pr-3 bg-white rounded-3xl border border-gray-200 text-sm;
 }
 
