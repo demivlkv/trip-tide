@@ -1,12 +1,12 @@
 import React from 'react';
 import { MapPin, Phone } from 'react-feather';
-import Rating from '@mui/material/Rating';
+import { Rating } from "@material-ui/lab";
 
 const PlaceDetails = ({ place, selected, refProp }) => {
   if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   
   return (
-    <div className="card-wrapper">
+    <div className="w-full card-wrapper">
       <div className="h-[350px]">
         <img 
           src={place.photo ? place.photo.images.larg.url : 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'}

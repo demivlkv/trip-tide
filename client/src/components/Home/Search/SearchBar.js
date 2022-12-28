@@ -15,7 +15,7 @@ const SearchBar = ({ setCoords }) => {
   };
 
 	return (
-		<div className="mb-8 flex justify-center items-center">
+		<div className="mb-12 flex justify-center items-center">
       <form className="max-w-[700px] w-full bg-[#ffffffcc] mt-4 p-1 flex justify-between items-center rounded-md">
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <div>

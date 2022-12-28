@@ -1,23 +1,34 @@
 import React from 'react';
-import GoogleMapReact from 'google-map-react';
-import { useMediaQuery } from '@mui/material';
+import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { useMediaQuery } from '@material-ui/core';
 import { MapPin } from 'react-feather';
-import Rating from '@mui/material/Rating';
+import { Rating } from "@material-ui/lab";
 
-import mapStyles from './MapStyles';
+import mapStyles from './MapStyles'
+
+const containerStyle = {
+  width: '100%',
+  height: '75vh'
+};
 
 const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
   const isDesktop = useMediaQuery('(min-width:600px)');
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPS_API_KEY
+  });
+
+  if (!isLoaded) {
+    return <div>Wait for it..........</div>
+  }
 
   return (
-    <div>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAPS_API_KEY }}
+    <>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
         defaultCenter={coords}
         center={coords}
-        defaultZoom={14}
-        margin={[50, 50, 50, 50]}
-        options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
+        zoom={14}
+        options={{ disableDefaultUI: true, zoomControl: true, styles : mapStyles }}
         onChange={(e) => {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
@@ -34,7 +45,7 @@ const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
             {!isDesktop 
               ? <MapPin width={18} />
               : (
-                <div className="shadow-lg">
+                <div className="w-full shadow-lg z-10">
                   <h3>{place.name}</h3>
                   <img
                     className=""
@@ -47,8 +58,8 @@ const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
             }
           </div>
         ))}
-      </GoogleMapReact>
-    </div>
+      </GoogleMap>
+    </>
   );
 };
 

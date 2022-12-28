@@ -82,7 +82,12 @@
   }
 
   .hero button {
-    @apply mx-3 px-4 py-2 rounded-3xl hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
+    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200 transition-all ease-in duration-300;
+  }
+
+  /* SEARCH COMPONENT */
+  .list select {
+    @apply mx-3 py-1 px-2 bg-gray-100 border border-gray-300 rounded-md;
   }
 
   /* BOOK COMPONENT */

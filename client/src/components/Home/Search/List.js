@@ -10,7 +10,7 @@ const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClick
   }, [places])
 
   return (
-    <div>
+    <div className="list">
       <h2>Restaurants, Hotels, & Attractions</h2>
       {loading ? (
         <div>
@@ -19,8 +19,8 @@ const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClick
       ) : (
         <>
       {/* OPTIONS TO SHOW NEARBY PLACES */}
-      <form>
-        <label for="nearby">Restaurants, Hotels, & Attractions Near You</label>
+      <form className="w-full flex items-center">
+        <label for="nearby" className="">Restaurants, Hotels, & Attractions Near You</label>
         <select name="nearby" value={nearbyType} onChange={(e) => setNearbyType(e.target.value)}>
           <option value="restaurants">Restaurants</option>
           <option value="hotels">Hotels</option>
@@ -28,7 +28,7 @@ const List = ({ places, nearbyType, setNearbyType, rating, setRating, childClick
         </select>
       </form>
       {/* OPTIONS FOR SHOW PLACES BY RATING */}
-      <form>
+      <form className="w-full flex items-center">
         <label for="nearby">Rating</label>
         <select name="nearby" value={rating} onChange={(e) => setRating(e.target.value)}>
           <option value={0}>All</option>

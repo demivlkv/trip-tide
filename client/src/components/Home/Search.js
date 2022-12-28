@@ -12,31 +12,29 @@ const Search = () => {
   const [rating, setRating] = useState('');
 
 	const [coords, setCoords] = useState({});
-	const [bounds, setBounds] = useState(null);
+	const [bounds, setBounds] = useState({});
 
   const [loading, setLoading] = useState(false);
   const [childClicked, setChildClicked] = useState(null);
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-			setCoords({ lat: latitude, lng: longitude})
+			setCoords({ lat: latitude, lng: longitude })
 		})
 	}, []);
 
   useEffect(() => {
-    const filteredPlaces = places.filter((place) => place.rating > rating);
-
-    setFilteredPlaces(filteredPlaces);
+    setFilteredPlaces(places.filter((place) => place.rating > rating));
   }, [rating])
 
 	useEffect(() => {
-    if (bounds?.sw && bounds?.ne) {
+    if (bounds.sw && bounds.ne) {
       setLoading(true);
 
       getPlaceData(nearbyType, bounds.sw, bounds.ne)
         .then((data) => {
           console.log(data);
-          setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+          setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
           setFilteredPlaces([]);
           setLoading(false);
       })
@@ -45,28 +43,30 @@ const Search = () => {
 
   return (
     <div name="search" className="search w-full h-full md:h-screen relative p-8">
-      <div className="w-full h-full">
+      <div className="w-full h-full flex flex-col justify-center items-center">
         <SearchBar setCoords={setCoords} />
-				<div className="flex items-center">
-					<List
-            places={filteredPlaces.length ? filteredPlaces : places}
-            childClicked={childClicked}
-            loading={loading}
-            nearbyType={nearbyType}
-            setNearbyType={setNearbyType}
-            rating={rating}
-            setRating={setRating}
-          />
-				</div>
-				<div className="flex items-center">
-					<Map
-						setCoords={setCoords}
-						setBounds={setBounds}
-						coords={coords}
-						places={filteredPlaces.length ? filteredPlaces : places}
-            setChildClicked={setChildClicked}
-					/>
-				</div>
+        <div className="w-full flex flex-wrap flex-row-reverse md:flex-nowrap md:flex-row justify-center items-center">
+          <div className="w-1/2">
+            <List
+              places={filteredPlaces.length ? filteredPlaces : places}
+              childClicked={childClicked}
+              loading={loading}
+              nearbyType={nearbyType}
+              setNearbyType={setNearbyType}
+              rating={rating}
+              setRating={setRating}
+            />
+          </div>
+          <div className="w-full mx-4">
+            <Map
+              setCoords={setCoords}
+              setBounds={setBounds}
+              coords={coords}
+              places={filteredPlaces.length ? filteredPlaces : places}
+              setChildClicked={setChildClicked}
+            />
+          </div>
+        </div>
 			</div>
     </div>
   )
