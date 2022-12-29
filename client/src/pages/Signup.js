@@ -100,7 +100,7 @@ const Signup = () => {
 									<BriefcaseIcon width={20} />
 								</div>
 								<input
-									placeholder="A little bio about yourself"
+									placeholder="Tell us a little about yourself"
 									name="description"
 									type="description"
 									id="description"

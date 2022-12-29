@@ -65,7 +65,7 @@ const Profile = () => {
             ))}
           </div>
           {/* DISPLAY USER INFO */}
-          <div className="w-80 mt-12 bg-gray-50 flex flex-wrap items-center rounded-lg shadow-lg">
+          <div className="w-80 mt-12 mb-8 bg-gray-50 flex flex-wrap items-center rounded-lg shadow-lg">
             <UserWidget
               username={user.username}
               location={user.location}
