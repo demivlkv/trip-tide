@@ -3,7 +3,7 @@ The purpose of this project was to build a MERN + GraphQL stack one-stop shop ap
 
 <p align="center">:sparkles: <a href="https://trip-tide.herokuapp.com/">Visit deployed application here</a> :sparkles:</p>
 
-![application demo](/../main/client/src/assets/screenshots/trip-tide.gif)
+![screenshot: homepage](/../main/client/src/assets/screenshots/home.png)
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
@@ -49,6 +49,8 @@ npm run build
 
 ## Usage
 Enter `npm run develop` at the root directory in terminal. This will start up the React app and initialize the back-end at the same time. The application will open automatically in your browser. Navigating through the application is fairly straight-forward with the navigation links at the top of the screen. Happy travels!
+
+![application demo](/../main/client/src/assets/screenshots/trip-tide.gif)
 
 ## Screenshots
 ![screenshot: homepage](/../main/client/src/assets/screenshots/home.png)
