@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter, Youtube, Heart } from 'react-feather';
 
 const Footer = () => {
 	return (
-		<div className="footer w-full px-4 py-8 bg-gray-800 text-white">
+		<footer className="footer mt-auto w-full px-4 py-8 bg-gray-800 text-white">
 			<div className="w-full">
 				<div className="upper">
 					<h3 className="text-teal-200 text-xl font-semibold uppercase">
@@ -44,7 +44,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</footer>
 	);
 };
 

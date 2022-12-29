@@ -14,7 +14,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <div className="w-full h-full p-4 flex flex-col justify-center items-center">
+      <div className="w-full h-full min-h-screen p-4 flex flex-col justify-center items-center">
         <div className="w-full mt-[120px] mx-8 mb-8 flex flex-col justify-center items-center text-white">
           <h1>Blog</h1>
           <h2>Turning travel passions into travel plans</h2>

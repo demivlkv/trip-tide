@@ -52,7 +52,7 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className="w-full h-full">
+      <div className="w-full h-full min-h-screen">
         <div className="profile w-full max-w-screen-xl mx-auto pt-[120px] flex flex-col md:flex-row justify-center items-start">
           <div className="w-full max-w-screen-md py-8 px-4">
             {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
