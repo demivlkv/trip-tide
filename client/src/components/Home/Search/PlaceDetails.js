@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone } from 'react-feather';
-import { Rating } from "@material-ui/lab";
+import Rating from '@mui/material/Rating'
 
 const PlaceDetails = ({ place, selected, refProp }) => {
   if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" })

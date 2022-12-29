@@ -1,8 +1,8 @@
 import React from 'react';
 import { GoogleMap, useLoadScript, OverlayView } from '@react-google-maps/api';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import { MapPin } from 'react-feather';
-import { Rating } from "@material-ui/lab";
+import Rating from '@mui/material/Rating'
 
 import mapStyles from './MapStyles'
 
