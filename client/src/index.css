@@ -68,8 +68,21 @@
     @apply top-[80px];
   }
 
-  .mobile-menu li {
+  .mobile-menu ul.primary li {
     @apply py-5 px-4 border-b border-[#ccc] hover:text-teal-200 cursor-pointer transition-all ease-in duration-500;
+  }
+
+  .mobile-menu ul.secondary li {
+    @apply py-5 px-4 hover:text-teal-200 cursor-pointer transition-all ease-in duration-500;
+  }
+
+  .navbar .mobile-menu li.login-btn,
+  .navbar .mobile-menu li.logout-btn {
+    @apply mx-3 mb-4 px-4 py-2 rounded-3xl text-center hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-gray-600 hover:outline-teal-200;
+  }
+
+  .navbar .mobile-menu li.signup-btn {
+    @apply mx-3 mb-2 px-4 py-2 rounded-3xl text-center text-white hover:text-teal-200 bg-gray-600 hover:bg-transparent outline outline-2 outline-offset-0 outline-gray-600 hover:outline-teal-200;
   }
 
   .social-icons .icon:hover {

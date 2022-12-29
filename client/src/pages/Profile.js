@@ -53,8 +53,8 @@ const Profile = () => {
   return (
     <Layout>
       <div className="w-full h-full min-h-screen">
-        <div className="profile w-full max-w-screen-xl mx-auto pt-[120px] flex flex-col md:flex-row justify-center items-start">
-          <div className="w-full max-w-screen-md py-8 px-4">
+        <div className="profile w-full max-w-screen-xl mx-auto pt-[120px] px-8 flex flex-col-reverse md:flex-row justify-center items-start">
+          <div className="w-full max-w-screen-md py-8 pr-0 md:pr-4">
             {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
             {!userParam && <PostForm />}
             {/* DISPLAY USER'S POSTS */}
@@ -65,7 +65,7 @@ const Profile = () => {
             ))}
           </div>
           {/* DISPLAY USER INFO */}
-          <div className="w-80 mt-12 mb-8 bg-gray-50 flex flex-wrap items-center rounded-lg shadow-lg">
+          <div className="w-full md:w-80 mt-12 mb-4 bg-gray-50 flex flex-wrap justify-center items-center rounded-lg shadow-lg">
             <UserWidget
               username={user.username}
               location={user.location}

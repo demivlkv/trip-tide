@@ -78,11 +78,11 @@ const Book = () => {
 								</div>
 							</div>
 							<div className="grid grid-cols-1 md:grid-cols-3 col-span-1 md:col-span-3 gap-4 pb-4 place-items-stretch">
-								<div>
+								<div id="departure-date" className="w-full">
 									<label className="block">Departure Date</label>
 									<input type="date" />
 								</div>
-								<div id="return-date">
+								<div id="return-date" className="w-full">
 									<label className="block">Return Date</label>
 									<input type="date" />
 								</div>

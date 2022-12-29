@@ -38,21 +38,21 @@ const HomeNavbar = () => {
 				</ul>
 
 				<div className="nav-icons hidden md:flex">
-				<ul className="hidden md:flex justify-center items-center">
-					{Auth.loggedIn() ? (
-						<>
-							<a href="/blog"><li>Blog</li></a>
-							<a href="/profile"><li className="mr-2">Profile</li></a>
-							<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
-						</>
-					) : (
-						<>
-							<a href="/blog"><li>Blog</li></a>
-							<a href="/login"><li className="login-btn">Login</li></a>
-							<a href="/signup"><li className="signup-btn">Signup</li></a>
-						</>
-					)}
-				</ul>
+					<ul className="hidden md:flex justify-center items-center">
+						{Auth.loggedIn() ? (
+							<>
+								<a href="/blog"><li>Blog</li></a>
+								<a href="/profile"><li className="mr-2">Profile</li></a>
+								<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
+							</>
+						) : (
+							<>
+								<a href="/blog"><li>Blog</li></a>
+								<a href="/login"><li className="login-btn">Login</li></a>
+								<a href="/signup"><li className="signup-btn">Signup</li></a>
+							</>
+						)}
+					</ul>
 				</div>
 
 				{/* HAMBURGER MENU */}
@@ -61,23 +61,28 @@ const HomeNavbar = () => {
 				</div>
 
         <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
-					<ul className="my-4">
+					<ul className="primary my-4">
 						<Link to="home" smooth={true} duration={500}><li>Home</li></Link>
 						<Link to="book" smooth={true} duration={500}><li>Book</li></Link>
 						<Link to="discover" smooth={true} duration={500}><li>Discover</li></Link>
 						<Link to="about" smooth={true} duration={500}><li>Our Story</li></Link>
+						<a href="/blog"><li>Blog</li></a>
+						<a href="/profile"><li>Profile</li></a>
 					</ul>
 
-          <div className="mobile-btm w-full py-4">
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
-            <div className="social-icons w-1/3 mx-auto flex justify-around my-4">
-              <Facebook size={25} className="icon" />
-              <Instagram size={25} className="icon" />
-              <Twitter size={25} className="icon" />
-              <Youtube size={25} className="icon" />
-            </div>
-          </div>
+					<ul className="secondary my-4">
+						{Auth.loggedIn() ? (
+							<>
+								<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
+							</>
+						) : (
+							<>
+								<a href="/login"><li className="login-btn">Login</li></a>
+								<a href="/signup"><li className="signup-btn">Signup</li></a>
+							</>
+						)}
+					</ul>
+
 				</div>
 			</div>
 		</nav>

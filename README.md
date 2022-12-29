@@ -12,7 +12,7 @@ The purpose of this project was to build a MERN + GraphQL stack travel applicati
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 
-## Technologies:
+## Technologies Used
 - [ReactJS](https://reactjs.org/)
 - [GraphQL](https://graphql.org/)
 - [MongoDB](https://www.mongodb.com/) + [Mongoose](https://mongoosejs.com/docs/)

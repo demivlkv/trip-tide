@@ -60,23 +60,27 @@ const DarkNavbar = () => {
 				</div>
 
         <div className={nav ? 'mobile-menu active' : 'mobile-menu'}>
-					<ul className="my-4">
+					<ul className="primary my-4">
 						<Link to="/blog"><li>#destinations</li></Link>
 						<Link to="#"><li>#cities</li></Link>
 						<Link to="#"><li>#travel tips</li></Link>
 						<Link to="#"><li>#resources</li></Link>
+						<a href="/blog"><li>Blog</li></a>
+						<a href="/profile"><li>Profile</li></a>
 					</ul>
-          <div className="mobile-btm w-full py-4">
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Search</button>
-            <button className="primary w-[90%] m-4 text-center uppercase tracking-widest">Account</button>
 
-            <div className="social-icons w-1/3 mx-auto flex justify-around my-4">
-              <Facebook size={25} className="icon" />
-              <Instagram size={25} className="icon" />
-              <Twitter size={25} className="icon" />
-              <Youtube size={25} className="icon" />
-            </div>
-        	</div>
+					<ul className="secondary my-4">
+						{Auth.loggedIn() ? (
+							<>
+								<a href="/" onClick={logout}><li className="logout-btn">Logout</li></a>
+							</>
+						) : (
+							<>
+								<a href="/login"><li className="login-btn">Login</li></a>
+								<a href="/signup"><li className="signup-btn">Signup</li></a>
+							</>
+						)}
+					</ul>
 				</div>
 			</div>
 		</nav>
