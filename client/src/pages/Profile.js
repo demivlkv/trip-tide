@@ -58,7 +58,7 @@ const Profile = () => {
             {/* IF USER IS LOGGED IN, DISPLAY POST FORM */}
             {!userParam && <PostForm />}
             {/* DISPLAY USER'S POSTS */}
-            {posts.map(post => (
+            {posts?.map(post => (
               <div key={post._id}>
                 <PostList post={post} />
               </div>

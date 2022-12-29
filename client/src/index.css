@@ -85,15 +85,7 @@
     @apply mx-3 mb-2 px-4 py-2 rounded-3xl text-center text-white hover:text-teal-200 bg-gray-600 hover:bg-transparent outline outline-2 outline-offset-0 outline-gray-600 hover:outline-teal-200;
   }
 
-  .social-icons .icon:hover {
-    @apply text-teal-400 transition-all ease-in duration-100 scale-110 cursor-pointer;
-  }
-
   /* HERO COMPONENT */
-  .hero input {
-    @apply py-2 px-3 bg-transparent text-lg rounded-md;
-  }
-
   .hero button {
     @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200 transition-all ease-in duration-300;
   }
@@ -128,11 +120,6 @@
 
   .discover .images:hover img {
     @apply scale-125;
-  }
-
-  /* ABOUT COMPONENT */
-  .about .images img {
-    @apply w-full h-full object-cover rounded;
   }
 
   /* FOOTER COMPONENT */

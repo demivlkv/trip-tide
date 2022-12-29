@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 // import icons
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import { Facebook, Instagram, Twitter, Youtube } from 'react-feather';
 
 const DarkNavbar = () => {
     const [nav, setNav] = useState(false);

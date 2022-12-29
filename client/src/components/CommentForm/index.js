@@ -44,7 +44,7 @@ const CommentForm = ({ postId }) => {
                     onChange={(e) => setBody(e.target.value)}
                     className="h-[14vh] mb-4"
                   ></textarea>
-                  <button className="primary mt-2" type="submit">
+                  <button className="primary mt-2" type="submit" disabled={commentBody.trim() === ''}>
                     Post
                   </button>
                 </form>

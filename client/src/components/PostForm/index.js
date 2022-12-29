@@ -88,7 +88,7 @@ const PostForm = () => {
                         onChange={(e) => setText(e.target.value)}
                         className="h-[14vh] mb-4"
                     ></textarea>
-                    <button className="primary mt-2">
+                    <button className="primary mt-2" disabled={postText.trim() === ''}>
                       Post
                     </button>
                   </form>

@@ -71,7 +71,7 @@ const SinglePost = () => {
                 </div>
                 <div>
                   {/* gives user the option to delete their own post */}
-                  {user && post.username === user.username && (
+                  {user && user.username === post.username && (
                     <DeleteButton postId={post._id} />
                   )}
                 </div>
