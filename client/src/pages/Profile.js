@@ -74,7 +74,7 @@ const Profile = () => {
               friends={user.friends}
             />
             {userParam && (
-              <div className="pb-4 px-4">
+              <div className="w-full flex justify-start pb-4 px-4">
                 <button onClick={handleClick} className="btn">
                   <div className="w-full h-full inline-flex items-center font-normal">
                     <UserPlus width={13} className="mr-1" /> Follow

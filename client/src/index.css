@@ -49,15 +49,15 @@
   }
 
   .navbar li.login-btn {
-    @apply mx-3 px-4 py-2 rounded-3xl hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
+    @apply mx-3 px-4 py-2 rounded-3xl hover:text-teal-200 bg-transparent border-2 border-white hover:border-teal-200;
   }
 
   .navbar li.signup-btn {
-    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200;
+    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent border-2 border-white hover:border-teal-200;
   }
 
   .navbar li.logout-btn {
-    @apply px-4 py-2 rounded-3xl outline outline-2 outline-offset-0 hover:outline-teal-200;
+    @apply px-4 py-2 rounded-3xl border-2 hover:border-teal-200;
   }
 
   .mobile-menu {
@@ -78,16 +78,16 @@
 
   .navbar .mobile-menu li.login-btn,
   .navbar .mobile-menu li.logout-btn {
-    @apply mx-3 mb-4 px-4 py-2 rounded-3xl text-center hover:text-teal-200 bg-transparent outline outline-2 outline-offset-0 outline-gray-600 hover:outline-teal-200;
+    @apply mx-3 mb-4 px-4 py-2 rounded-3xl text-center hover:text-white bg-transparent border-2 border-gray-700 hover:bg-gray-700;
   }
 
   .navbar .mobile-menu li.signup-btn {
-    @apply mx-3 mb-2 px-4 py-2 rounded-3xl text-center text-white hover:text-teal-200 bg-gray-600 hover:bg-transparent outline outline-2 outline-offset-0 outline-gray-600 hover:outline-teal-200;
+    @apply mx-3 mb-2 px-4 py-2 rounded-3xl text-center text-white hover:text-gray-700 bg-gray-700 hover:bg-transparent border-2 border-gray-700;
   }
 
   /* HERO COMPONENT */
   .hero button {
-    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent outline outline-2 outline-offset-0 outline-white hover:outline-teal-200 transition-all ease-in duration-300;
+    @apply ml-3 mr-0 px-4 py-2 rounded-3xl text-gray-800 hover:text-teal-200 bg-white hover:bg-transparent border-2 border-white hover:border-teal-200 transition-all ease-in duration-300;
   }
 
   /* SEARCH COMPONENT */
@@ -202,5 +202,5 @@
 }
 
 .profile .btn {
-  @apply py-1 px-3 flex items-center text-xs text-gray-800 bg-gradient-to-t from-white to-white outline outline-2 outline-offset-0 outline-gray-800 hover:text-gray-500 hover:outline-teal-200 rounded-sm transition-all ease-in duration-300;
+  @apply py-1 px-3 flex items-center text-xs text-gray-800 bg-gradient-to-t from-white to-white border-2 border-gray-800 hover:text-gray-500 hover:border-teal-200 rounded-sm transition-all ease-in duration-300;
 }
