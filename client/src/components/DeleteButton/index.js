@@ -7,13 +7,13 @@ import { QUERY_POSTS } from '../../utils/queries';
 const DeleteButton = ({ postId, callback }) => {
   const [showModal, setShowModal] = useState(false);
   const [deletePost] = useMutation(DELETE_POST, {
-    update(proxy) {
+    update(cache) {
       setShowModal(false);
-      const data = proxy.readQuery({
+      const data = cache.readQuery({
         query: QUERY_POSTS
       });
-      data.posts = data.posts.filter((p) => p._id !== postId);
-      proxy.writeQuery({ query: QUERY_POSTS, data });
+      const getPost = data.posts.filter((p) => p._id !== postId);
+      cache.writeQuery({ query: QUERY_POSTS, data: { posts: [...getPost] } });
 
       // remove post from cache
       if (callback) callback();
@@ -59,8 +59,7 @@ const DeleteButton = ({ postId, callback }) => {
                       <div className="items-center gap-2 mt-3 sm:flex">
                         <button
                           className="w-full mt-2 p-2.5 flex-1 text-white bg-gradient-to-br from-pink-600 to-orange-400 hover:opacity-70 rounded-md outline-none ring-offset-2 ring-red-600 focus:ring-2 transition-all ease-in duration-300"
-                          onClick={() => setShowModal(false)}
-                          onConfirm={deletePost}
+                          onClick={deletePost}
                         >
                           Delete
                         </button>

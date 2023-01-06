@@ -11,7 +11,7 @@ import CommentForm from '../components/CommentForm';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 
-const SinglePost = () => {
+const SinglePost = (props) => {
   const { id: postId } = useParams();
   const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {
@@ -25,6 +25,10 @@ const SinglePost = () => {
   } else {
     let postMarkup;
     const { _id, likes, likeCount } = post;
+
+    function deletePostCallback() {
+      props.history.push('/blog');
+    };
 
     postMarkup = (
       <Layout>
@@ -72,7 +76,7 @@ const SinglePost = () => {
                 <div>
                   {/* gives user the option to delete their own post */}
                   {user && user.username === post.username && (
-                    <DeleteButton postId={post._id} />
+                    <DeleteButton postId={post._id} callback={deletePostCallback} />
                   )}
                 </div>
               </div>
