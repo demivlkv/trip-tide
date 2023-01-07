@@ -202,5 +202,5 @@
 }
 
 .profile .btn {
-  @apply py-1 px-3 flex items-center text-xs text-gray-800 bg-gradient-to-t from-white to-white border-2 border-gray-800 hover:text-gray-500 hover:border-teal-200 rounded-sm transition-all ease-in duration-300;
+  @apply py-1 px-3 flex items-center text-xs enabled:bg-gray-800 enabled:hover:bg-transparent enabled:text-gray-200 border-2 enabled:border-gray-800 enabled:hover:text-gray-500 enabled:hover:border-teal-200 rounded-md transition-all ease-in duration-300 disabled:border-gray-500 disabled:text-gray-500;
 }
