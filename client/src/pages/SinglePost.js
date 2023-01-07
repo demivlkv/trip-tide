@@ -11,7 +11,7 @@ import CommentForm from '../components/CommentForm';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 
-const SinglePost = (props) => {
+const SinglePost = () => {
   const { id: postId } = useParams();
   const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_POST, {
@@ -27,7 +27,7 @@ const SinglePost = (props) => {
     const { _id, likes, likeCount } = post;
 
     function deletePostCallback() {
-      props.history.push('/blog');
+      window.location.replace('/blog');
     };
 
     postMarkup = (

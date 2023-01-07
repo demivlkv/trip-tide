@@ -10,6 +10,7 @@ import Layout from '../components/Layout/Dashboard';
 import UserWidget from '../components/UserWidget';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
+import DeleteButton from '../components/DeleteButton';
 
 const Profile = () => {
   // retrieve user information
