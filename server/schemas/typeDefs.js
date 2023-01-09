@@ -79,6 +79,7 @@ const typeDefs = gql`
         deleteComment(postId: ID!, commentId: ID!): Post!
         likePost(postId: ID!): Post!
         addFriend(friendId: ID!): User
+        removeFriend(friendId: ID!): User
         savePlace(input: PlaceInput!): User
         removePlace(placeId: String!): User
     }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Link, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { UserPlus, Check } from 'react-feather';
+import { UserPlus, Check, UserMinus } from 'react-feather';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND } from '../utils/mutations';
+import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
 import UserWidget from '../components/UserWidget';
@@ -22,26 +22,17 @@ const Profile = () => {
 
   // follow users feature
   const [addFriend] = useMutation(ADD_FRIEND);
-  const [followed, setFollowed] = useState(false);
+  const [following, setFollowing] = useState(false);
 
-  // maintain `following` state for follow button
-  // useEffect(() => {
-  //   if (userParam && user.friends.includes((friend) => friend._id === user._id)) {
-  //     setFollowed(true);
-  //   } else {
-  //     setFollowed(false);
-  //   }
-  // }, [userParam, user]);
-
-  const handleClick = async () => {
+  const handleAddFriend = async () => {
     try {
       await addFriend({
         variables: { id: user._id }
       });
-      setFollowed(true);
     } catch (e) {
       console.error(e);
     }
+    setFollowing(true);
   };
 
   // navigate to personal profile page if username is the logged-in user's
@@ -88,14 +79,14 @@ const Profile = () => {
             />
             {userParam && (
               <div className="w-full flex justify-start pb-4 px-4">
-                {followed ? (
+                {following ? (
                   <button disabled className="btn">
                     <div className="w-full h-full inline-flex items-center font-normal">
                       <Check width={13} className="mr-1" /> Following
                     </div>
                   </button>
                 ) : (
-                  <button onClick={handleClick} className="btn">
+                  <button onClick={handleAddFriend} className="btn">
                     <div className="w-full h-full inline-flex items-center font-normal">
                       <UserPlus width={13} className="mr-1" /> Follow
                     </div>
