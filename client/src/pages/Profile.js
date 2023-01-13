@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Link, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { UserPlus, Check, UserMinus } from 'react-feather';
+import { UserPlus, UserMinus } from 'react-feather';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
@@ -34,6 +34,24 @@ const Profile = () => {
     }
     setFollowing(true);
   };
+
+  // unfollow users feature
+  const [removeFriend] = useMutation(REMOVE_FRIEND);
+
+  const handleRemoveFriend = async () => {
+    try {
+      await removeFriend({
+        variables: { id: user._id }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    setFollowing(false);
+  };
+
+  // useEffect(() => {
+  //   setFollowing(userParam && user.friends.find((friend) => friend._id));
+  // }, [user, userParam]);
 
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -80,9 +98,9 @@ const Profile = () => {
             {userParam && (
               <div className="w-full flex justify-start pb-4 px-4">
                 {following ? (
-                  <button disabled className="btn">
+                  <button onClick={handleRemoveFriend} className="btn">
                     <div className="w-full h-full inline-flex items-center font-normal">
-                      <Check width={13} className="mr-1" /> Following
+                      <UserMinus width={13} className="mr-1" /> Unfollow
                     </div>
                   </button>
                 ) : (
