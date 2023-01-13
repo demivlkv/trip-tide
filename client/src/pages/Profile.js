@@ -22,7 +22,7 @@ const Profile = () => {
 
   // follow users feature
   const [addFriend] = useMutation(ADD_FRIEND);
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState(user.friends?.find(friend => friend._id && user.friends));
 
   const handleAddFriend = async () => {
     try {
@@ -49,9 +49,13 @@ const Profile = () => {
     setFollowing(false);
   };
 
-  // useEffect(() => {
-  //   setFollowing(userParam && user.friends.find((friend) => friend._id));
-  // }, [user, userParam]);
+  useEffect(() => {
+    if (user.friends?.find(friend => friend._id && user.friends)) {
+      setFollowing(true);
+    } else {
+      setFollowing(false);
+    }
+  }, [user]);
 
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
