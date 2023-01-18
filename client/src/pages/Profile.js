@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, Link, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { UserPlus, UserMinus } from 'react-feather';
@@ -20,42 +20,87 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
   const posts = user?.posts || [];
 
+  // // follow users feature
+  // const [following, setFollowing] = useState(false);
+  // // attempt 1:
+  // const [addFriend] = useMutation(ADD_FRIEND, {
+  //   update(cache) {
+  //     const data = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: {
+  //         friends: [...data.me?.friends, user]
+  //       }
+  //     });
+  //     setFollowing(true);
+  //   },
+  //   variables: { id: user._id }
+  // });
+
+  // // atempt 2:
+  // const [addFriend] = useMutation(ADD_FRIEND, {
+  //   update(cache, { data: { following } }) {
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, friends: [...me.friends, following] } }
+  //     });
+  //     setFollowing(false);
+  //   },
+  //   variables: { id: user._id }
+  // });
+
+  // // unfollow users feature
+  // const [removeFriend] = useMutation(REMOVE_FRIEND, {
+  //   update(cache) {
+  //     const data = cache.readQuery({ query: QUERY_ME });
+  //     const getFollowing = data.me.friends.filter((friend) => friend.username !== user.userParam);
+  //     // console.log(getFollowing);
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: {
+  //         friends: [...getFollowing]
+  //       }
+  //     });
+  //     setFollowing(false);
+  //   },
+  //   variables: { id: user._id }
+  // });
+
   // follow users feature
+  const [addFriend] = useMutation(ADD_FRIEND);
   const [following, setFollowing] = useState(false);
-  const [addFriend] = useMutation(ADD_FRIEND, {
-    update(cache) {
-      const data = cache.readQuery({
-        query: QUERY_ME
-      });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: {
-          friends: [...data.me?.friends, user]
-        }
+  const handleAddFriend = async () => {
+    try {
+      await addFriend({
+        variables: { id: user._id }
       });
       setFollowing(true);
-    },
-    variables: { id: user._id }
-  });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   // unfollow users feature
-  const [removeFriend] = useMutation(REMOVE_FRIEND, {
-    update(cache) {
-      const data = cache.readQuery({
-        query: QUERY_ME
-      });
-      const getFollowing = data.me?.friends.filter((friend) => friend.username !== user.userParam);
-      // console.log(getFollowing);
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: {
-          friends: [...getFollowing, user]
-        }
+  const [removeFriend] = useMutation(REMOVE_FRIEND);
+  const handleRemoveFriend = async () => {
+    try {
+      await removeFriend({
+        variables: { id: user._id }
       });
       setFollowing(false);
-    },
-    variables: { id: user._id }
-  });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    if (userParam && user.friends?.find(friend => friend.username && userParam)) {
+      setFollowing(true);
+    } else {
+      setFollowing(false);
+    }
+  }, [user.friends, userParam]);
 
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -101,19 +146,19 @@ const Profile = () => {
             />
             {userParam && (
               <div className="w-full flex justify-start pb-4 px-4">
-                {following ? (
-                  <button onClick={removeFriend} className="btn">
-                    <div className="w-full h-full inline-flex items-center font-normal">
-                      <UserMinus width={13} className="mr-1" /> Unfollow
-                    </div>
-                  </button>
-                ) : (
-                  <button onClick={addFriend} className="btn">
-                    <div className="w-full h-full inline-flex items-center font-normal">
-                      <UserPlus width={13} className="mr-1" /> Follow
-                    </div>
-                  </button>
-                )}
+                <button onClick={following ? handleRemoveFriend : handleAddFriend} className="btn">
+                  <div className="w-full h-full inline-flex items-center font-normal">
+                    {following ? (
+                      <>
+                        <UserMinus width={13} className="mr-1" /> Unfollow
+                      </>
+                    ) : (
+                      <>
+                        <UserPlus width={13} className="mr-1" /> Follow
+                      </>
+                    )}
+                  </div>
+                </button>
               </div>
             )}
           </div>

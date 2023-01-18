@@ -25,7 +25,7 @@ const PostForm = () => {
 
       // update post array's cache
       const { posts } = cache.readQuery({ query: QUERY_POSTS });
-      // prepend the newest thought to the front of the array
+      // prepend the newest post to the front of the array
       cache.writeQuery({
         query: QUERY_POSTS,
         data: { posts: [addPost, ...posts] }
@@ -83,10 +83,10 @@ const PostForm = () => {
                       onChange={(e) => setTitle(e.target.value)}
                     />
                     <textarea
-                        placeholder="What's on your mind..."
-                        value={postText}
-                        onChange={(e) => setText(e.target.value)}
-                        className="h-[14vh] mb-4"
+                      placeholder="What's on your mind..."
+                      value={postText}
+                      onChange={(e) => setText(e.target.value)}
+                      className="h-[14vh] mb-4"
                     ></textarea>
                     <button className="primary mt-2" disabled={postText.trim() === ''}>
                       Post

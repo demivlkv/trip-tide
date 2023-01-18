@@ -34,7 +34,7 @@
   }
 
   button.primary, button[type=submit].primary {
-    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300 hover:opacity-[0.75] rounded-md py-2 px-4;
+    @apply transition-all ease-in duration-300 text-white font-medium bg-gradient-to-tr from-blue-400 to-teal-300 hover:opacity-[0.75] rounded-md py-2 px-4 disabled:opacity-60;
   }
 }
 
