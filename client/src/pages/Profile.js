@@ -20,53 +20,6 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
   const posts = user?.posts || [];
 
-  // // follow users feature
-  // const [following, setFollowing] = useState(false);
-  // // attempt 1:
-  // const [addFriend] = useMutation(ADD_FRIEND, {
-  //   update(cache) {
-  //     const data = cache.readQuery({ query: QUERY_ME });
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: {
-  //         friends: [...data.me?.friends, user]
-  //       }
-  //     });
-  //     setFollowing(true);
-  //   },
-  //   variables: { id: user._id }
-  // });
-
-  // // atempt 2:
-  // const [addFriend] = useMutation(ADD_FRIEND, {
-  //   update(cache, { data: { following } }) {
-  //     const { me } = cache.readQuery({ query: QUERY_ME });
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: { me: { ...me, friends: [...me.friends, following] } }
-  //     });
-  //     setFollowing(false);
-  //   },
-  //   variables: { id: user._id }
-  // });
-
-  // // unfollow users feature
-  // const [removeFriend] = useMutation(REMOVE_FRIEND, {
-  //   update(cache) {
-  //     const data = cache.readQuery({ query: QUERY_ME });
-  //     const getFollowing = data.me.friends.filter((friend) => friend.username !== user.userParam);
-  //     // console.log(getFollowing);
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: {
-  //         friends: [...getFollowing]
-  //       }
-  //     });
-  //     setFollowing(false);
-  //   },
-  //   variables: { id: user._id }
-  // });
-
   // follow users feature
   const [addFriend] = useMutation(ADD_FRIEND);
   const [following, setFollowing] = useState(false);
@@ -95,7 +48,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (userParam && user.friends?.find(friend => friend.username && userParam)) {
+    if (user.friends?.find(friend => friend.username && userParam)) {
       setFollowing(true);
     } else {
       setFollowing(false);
