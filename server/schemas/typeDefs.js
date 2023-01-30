@@ -7,6 +7,7 @@ const typeDefs = gql`
         email: String!
         location: String
         description: String
+        avatar: String
         friendCount: Int
         posts: [Post]
         friends: [User]
@@ -57,6 +58,15 @@ const typeDefs = gql`
         thumbnail_url: String
     }
 
+    input UpdateUser {
+        username: String
+        email: String
+        password: String
+        location: String
+        avatar: String
+        description: String
+    }
+
     type Query {
         me: User
         users: [User]
@@ -73,6 +83,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, location: String, description: String): Auth
+        updateUser(input: UpdateUser!, userId: ID!): Auth
         addPost(postTitle: String!, postText: String!): Post!
         deletePost(postId: ID!): String!
         addComment(postId: ID!, commentBody: String!): Post!

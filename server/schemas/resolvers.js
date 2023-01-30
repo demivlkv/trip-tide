@@ -93,6 +93,25 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in');
         },
 
+        updateUser: async (parent, { input, userId }, context) => {
+            if (context.user) {
+                if (context.user._id === userId) {
+                    const user = await User.findByIdAndUpdate(
+                        userId,
+                        { ...input },
+                        { new: true }
+                    )
+                        .select('-__v -password')
+                        .populate('friends')
+
+                    const token = signToken(user);
+                    return { token, user };
+                }
+                throw new AuthenticationError('You do not have permission to do that');
+            }
+            throw new AuthenticationError('You need to be logged in');
+        },
+
         likePost: async (parent, { postId }, context) => {
             const { username } = context.user;
             const post = await Post.findById(postId);
