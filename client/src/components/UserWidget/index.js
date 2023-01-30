@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Briefcase, Settings } from 'react-feather';
 
-const UserWidget = ({ username, location, description, friends, friendCount }) => {
+const UserWidget = ({ username, location, description, avatar, friends, friendCount }) => {
   return (
     <>
       <section className="w-full p-3 flex flex-col items-center">
         {/* PROFILE IMG */}
         <div className="w-full flex flex-wrap items-center">
           <img
-            src="https://randomuser.me/api/portraits/women/18.jpg"
-            alt="user icon"
+            src={avatar}
+            alt={username}
             className="mr-3 w-20 h-20 rounded-full"
           />
           <div className="flex flex-col">
@@ -44,8 +44,8 @@ const UserWidget = ({ username, location, description, friends, friendCount }) =
               <li key={friend._id}>
                 <div className="flex flex-row items-center text-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1632399201766-f5687a66af4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTc5fHxvY2VhbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=800&q=60"
-                    alt="user icon"
+                    src={friend.avatar}
+                    alt={friend.username}
                     className="w-12 h-12 rounded-full mr-2"
                   />
                   <div className="w-full flex flex-col">

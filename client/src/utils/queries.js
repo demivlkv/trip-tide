@@ -56,12 +56,14 @@ export const QUERY_USER = gql`
             email
             location
             description
+            avatar
             friendCount
             friends {
                 _id
                 username
                 location
                 description
+                avatar
             }
             posts {
                 _id
@@ -93,12 +95,14 @@ export const QUERY_ME = gql`
             email
             location
             description
+            avatar
             friendCount
             friends {
                 _id
                 username
                 location
                 description
+                avatar
             }
             posts {
                 _id
@@ -131,10 +135,12 @@ export const QUERY_ME_BASIC = gql`
             email
             location
             description
+            avatar
             friendCount
             friends {
                 _id
                 username
+                avatar
             }
         }
     }

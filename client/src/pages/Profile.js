@@ -94,6 +94,7 @@ const Profile = () => {
               username={user.username}
               location={user.location}
               description={user.description}
+              avatar={user.avatar}
               friendCount={user.friendCount}
               friends={user.friends}
             />

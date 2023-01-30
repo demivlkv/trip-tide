@@ -22,6 +22,21 @@ export const ADD_USER = gql`
         email
         location
         description
+        avatar
+      }
+    }
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation updateUser($input: EditUserInput!, $id: ID!) {
+    updateUser(input: $input, userId: $id) {
+      token
+      user {
+        _id
+        avatar
+        location
+        description
       }
     }
   }
@@ -36,6 +51,7 @@ export const ADD_FRIEND = gql`
       friends {
         _id
         username
+        avatar
       }
     }
   }
@@ -50,6 +66,7 @@ export const REMOVE_FRIEND = gql`
       friends {
         _id
         username
+        avatar
       }
     }
   }

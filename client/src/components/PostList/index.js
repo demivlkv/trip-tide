@@ -21,8 +21,8 @@ const PostList = ({ post: { _id, username, postTitle, postText, createdAt, comme
         <div className="flex items-center">
           <div className="mr-4">
             <img
-              src="https://randomuser.me/api/portraits/women/18.jpg"
-              alt="user icon"
+              src={user.avatar}
+              alt={user.username}
               className="w-14 h-14 rounded-full"
             />
           </div>
