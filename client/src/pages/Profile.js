@@ -55,7 +55,7 @@ const Profile = () => {
     }
   }, [user.friends, userParam]);
 
-  // update profile
+  // update profile feature
   const [showModal, setShowModal] = useState(false);
   const [userPic, setUserPic] = useState('');
   const [userLocation, setUserLocation] = useState('');
@@ -168,7 +168,7 @@ const Profile = () => {
                             <form className="w-full px-4 pb-2 flex flex-col justify-center" onSubmit={handleFormSubmit}>
                               <input
                                 type="text"
-                                placeholder="Update Profile Picture"
+                                placeholder="Profile Picture URL"
                                 value={userPic}
                                 onChange={(e) => setUserPic(e.target.value)}
                               />

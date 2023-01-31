@@ -45,9 +45,9 @@ const UserWidget = ({ username, location, description, avatar, friends, friendCo
                   <img
                     src={friend.avatar}
                     alt={friend.username}
-                    className="w-12 h-12 rounded-full mr-2"
+                    className="w-12 h-12 rounded-full"
                   />
-                  <div className="w-full flex flex-col">
+                  <div className="ml-2 w-full flex flex-col">
                     <Link to={`/profile/${friend.username}`} className="font-medium hover:text-teal-400">{friend.username}</Link>
                     <p className="text-gray-400 text-xs">{friend.description}</p>
                   </div>
