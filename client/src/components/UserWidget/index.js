@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Briefcase, Settings } from 'react-feather';
+import { MapPin, Briefcase } from 'react-feather';
 
 const UserWidget = ({ username, location, description, avatar, friends, friendCount }) => {
   return (
@@ -11,12 +11,11 @@ const UserWidget = ({ username, location, description, avatar, friends, friendCo
           <img
             src={avatar}
             alt={username}
-            className="mr-3 w-20 h-20 rounded-full"
+            className="w-20 h-20 rounded-full"
           />
-          <div className="flex flex-col">
-            <div className="inline-flex">
-              <h3 className="mb-2 text-gray-600 text-left">{username}</h3>
-              <Settings width="20" className="ml-3 mt-1 text-gray-400 hover:text-teal-300 transition-all ease-in duration-300 cursor-pointer" />
+          <div className="flex flex-col ml-3">
+            <div className="mb-2 text-gray-600 text-left">
+              <h3>{username}</h3>
             </div>
             <div>
               <p className="text-sm text-gray-400">{friendCount} following</p>

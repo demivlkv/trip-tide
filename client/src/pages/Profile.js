@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Link, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { UserPlus, UserMinus } from 'react-feather';
+import { UserPlus, UserMinus, Settings, X } from 'react-feather';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
+import { ADD_FRIEND, REMOVE_FRIEND, UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
 import UserWidget from '../components/UserWidget';
@@ -55,6 +55,35 @@ const Profile = () => {
     }
   }, [user.friends, userParam]);
 
+  // update profile
+  const [showModal, setShowModal] = useState(false);
+  const [userPic, setUserPic] = useState('');
+  const [userLocation, setUserLocation] = useState('');
+  const [userBio, setUserBio] = useState('');
+  const [updateUser] = useMutation(UPDATE_USER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await updateUser({
+        variables: {
+          userId: Auth.getProfile().data._id,
+          input: {
+            avatar: userPic,
+            location: userLocation,
+            description: userBio
+          }
+        },
+      });
+      setUserPic('');
+      setUserLocation('');
+      setUserBio('');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   // navigate to personal profile page if username is the logged-in user's
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />;
@@ -98,7 +127,7 @@ const Profile = () => {
               friendCount={user.friendCount}
               friends={user.friends}
             />
-            {userParam && (
+            {userParam ? (
               <div className="w-full flex justify-start pb-4 px-4">
                 <button onClick={following ? handleRemoveFriend : handleAddFriend} className="btn">
                   <div className="w-full h-full inline-flex items-center font-normal">
@@ -113,6 +142,59 @@ const Profile = () => {
                     )}
                   </div>
                 </button>
+              </div>
+            ) : (
+              <div className="w-full flex justify-start pb-4 px-4">
+                <button className="btn" onClick={() => setShowModal(true)}>
+                  <div className="w-full h-full inline-flex items-center font-normal">
+                    <Settings width={13} className="mr-1" /> Update Profile
+                  </div>
+                </button>
+                <div className="flex items-center justify-center">
+                  {showModal ? (
+                    <>
+                      <div className="fixed inset-0 z-10 overflow-y-auto">
+                        <div
+                          className="fixed inset-0 w-full h-full bg-black opacity-40"
+                          onClick={() => setShowModal(false)}
+                        ></div>
+                        <div className="flex items-center min-h-screen px-4 py-8">
+                          <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-lg shadow-lg">
+                            <div className="mb-4 flex justify-end items-center text-gray-400 hover:text-teal-300 hover:cursor-pointer transition-all ease-in duration-300" onClick={() => setShowModal(false)}>
+                              <X width={25} className="inline-flex items-center" />
+                            </div>
+                            <h1 className="text-3xl">Update Profile</h1>
+                            <div className="update-form">
+                            <form className="w-full px-4 pb-2 flex flex-col justify-center" onSubmit={handleFormSubmit}>
+                              <input
+                                type="text"
+                                placeholder="Update Profile Picture"
+                                value={userPic}
+                                onChange={(e) => setUserPic(e.target.value)}
+                              />
+                              <input
+                                type="text"
+                                placeholder="Update Location"
+                                value={userLocation}
+                                onChange={(e) => setUserLocation(e.target.value)}
+                              />
+                              <input
+                                type="text"
+                                placeholder="Update Bio"
+                                value={userBio}
+                                onChange={(e) => setUserBio(e.target.value)}
+                              />
+                              <button className="primary mt-2">
+                                Update
+                              </button>
+                            </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     </>
+                  ) : null}
+                </div>
               </div>
             )}
           </div>

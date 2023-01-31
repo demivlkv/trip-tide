@@ -29,7 +29,7 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($input: EditUserInput!, $id: ID!) {
+  mutation updateUser($input: UpdateUserInput!, $id: ID!) {
     updateUser(input: $input, userId: $id) {
       token
       user {

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { X } from 'react-feather';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const PostForm = () => {
+  const { data } = useQuery(QUERY_ME);
+  const user = data?.me || {};
+
   const [showModal, setShowModal] = useState(false);
   const [postTitle, setTitle] = useState('');
   const [postText, setText] = useState('');
@@ -54,8 +57,8 @@ const PostForm = () => {
     <div className="w-full px-1 flex items-center">
       <div className="w-20">
         <img
-          src="https://randomuser.me/api/portraits/women/18.jpg"
-          alt="user icon"
+          src={user.avatar}
+          alt={user.username}
           className="w-14 h-14 rounded-full"
         />
       </div>

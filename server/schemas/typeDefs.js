@@ -58,7 +58,7 @@ const typeDefs = gql`
         thumbnail_url: String
     }
 
-    input UpdateUser {
+    input UpdateUserInput {
         username: String
         email: String
         password: String
@@ -83,7 +83,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, location: String, description: String): Auth
-        updateUser(input: UpdateUser!, userId: ID!): Auth
+        updateUser(input: UpdateUserInput!, userId: ID!): Auth
         addPost(postTitle: String!, postText: String!): Post!
         deletePost(postId: ID!): String!
         addComment(postId: ID!, commentBody: String!): Post!

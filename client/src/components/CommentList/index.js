@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 
 const CommentList = ({ comments }) => {
+    const { data } = useQuery(QUERY_ME);
+    const user = data?.me || {};
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
         <div className="mt-10">
@@ -14,8 +19,8 @@ const CommentList = ({ comments }) => {
                     <div className="w-full flex justify-center items-start">
                         <div className="w-24">
                             <img
-                                src="https://randomuser.me/api/portraits/women/18.jpg"
-                                alt="user icon"
+                                src={user.avatar}
+                                alt={user.username}
                                 className="w-16 h-16 rounded-full"
                             />
                         </div>
