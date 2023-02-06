@@ -24,6 +24,7 @@ const typeDefs = gql`
         commentCount: Int
         likes: [Like]!
         likeCount: Int!
+        user: [User]
     }
 
     type Comment {
@@ -32,6 +33,7 @@ const typeDefs = gql`
         username: String!
         createdAt: String
         place_id: String
+        user: [User]
     }
 
     type Like {

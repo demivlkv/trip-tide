@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 
-import { QUERY_POST, QUERY_ME } from '../utils/queries';
+import { QUERY_POST, QUERY_USER } from '../utils/queries';
 import Auth from '../utils/auth';
 import Layout from '../components/Layout/Dashboard';
 import CommentList from '../components/CommentList';
@@ -13,11 +13,11 @@ import DeleteButton from '../components/DeleteButton';
 
 const SinglePost = () => {
   const { id: postId } = useParams();
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data: userData } = useQuery(QUERY_USER);
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
-  const user = userData?.me || {};
+  const user = userData?.user || {};
   const post = data?.post || [];
 
   if (loading) {
@@ -38,8 +38,8 @@ const SinglePost = () => {
               <div className="w-full flex items-center">
                 <div className="mr-4">
                   <img
-                    src={user.avatar}
-                    alt={user.username}
+                    src={post.avatar}
+                    alt={post.username}
                     className="w-14 h-14 md:w-20 md:h-20 rounded-full"
                   />
                 </div>

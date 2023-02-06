@@ -68,7 +68,7 @@ const Profile = () => {
     try {
       await updateUser({
         variables: {
-          userId: Auth.getProfile().data._id,
+          id: Auth.getProfile().data._id,
           input: {
             avatar: userPic,
             location: userLocation,

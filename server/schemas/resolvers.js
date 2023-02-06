@@ -102,7 +102,6 @@ const resolvers = {
                         { new: true }
                     )
                         .select('-__v -password')
-                        .populate('friends')
 
                     const token = signToken(user);
                     return { token, user };

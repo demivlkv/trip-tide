@@ -84,6 +84,10 @@ export const ADD_POST = gql`
       comments {
         _id
       }
+      user {
+        _id
+        avatar
+      }
       likeCount
       likes {
         _id
@@ -110,6 +114,10 @@ export const ADD_COMMENT = gql`
         commentBody
         createdAt
         username
+        user {
+          _id
+          avatar
+        }
       }
     }
   }

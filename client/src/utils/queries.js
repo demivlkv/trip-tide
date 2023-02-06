@@ -14,6 +14,14 @@ export const QUERY_POSTS = gql`
                 createdAt
                 username
                 commentBody
+                user {
+                    _id
+                    avatar
+                }
+            }
+            user {
+                _id
+                avatar
             }
             likeCount
             likes {
@@ -38,11 +46,19 @@ export const QUERY_POST = gql`
               createdAt
               username
               commentBody
+              avatar {
+                _id
+                avatar
+              }
             }
             likeCount
             likes {
                 _id
                 username
+            }
+            user {
+                _id
+                avatar
             }
         }
     }
@@ -76,11 +92,19 @@ export const QUERY_USER = gql`
                     createdAt
                     commentBody
                     username
+                    user {
+                        _id
+                        avatar
+                    }
                 }
                 likeCount
                 likes {
                     _id
                     username
+                }
+                user {
+                    _id
+                    avatar
                 }
             }
         }
@@ -115,12 +139,20 @@ export const QUERY_ME = gql`
                     createdAt
                     commentBody
                     username
+                    user {
+                        _id
+                        avatar
+                    }
                 }
                 likeCount
                 likes{
                     _id
                     createdAt
                     username
+                }
+                user {
+                    _id
+                    avatar
                 }
             }
         }

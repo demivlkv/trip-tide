@@ -15,7 +15,13 @@ const commentSchema = new Schema(
       type: Date,
       default: Date.now,
       get: timestamp => moment(timestamp).fromNow()
-    }
+    },
+    user: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ]
   },
   {
     toJSON: {
