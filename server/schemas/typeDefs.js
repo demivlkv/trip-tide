@@ -7,7 +7,7 @@ const typeDefs = gql`
         email: String!
         location: String
         description: String
-        avatar: String
+        avatar: String!
         friendCount: Int
         posts: [Post]
         friends: [User]
@@ -24,7 +24,7 @@ const typeDefs = gql`
         commentCount: Int
         likes: [Like]!
         likeCount: Int!
-        user: [User]
+        author: [User]!
     }
 
     type Comment {
@@ -33,7 +33,7 @@ const typeDefs = gql`
         username: String!
         createdAt: String
         place_id: String
-        user: [User]
+        author: [User]!
     }
 
     type Like {

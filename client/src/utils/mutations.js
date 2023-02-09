@@ -84,7 +84,7 @@ export const ADD_POST = gql`
       comments {
         _id
       }
-      user {
+      author {
         _id
         avatar
       }
@@ -114,7 +114,7 @@ export const ADD_COMMENT = gql`
         commentBody
         createdAt
         username
-        user {
+        author {
           _id
           avatar
         }

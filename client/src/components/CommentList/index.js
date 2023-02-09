@@ -14,7 +14,7 @@ const CommentList = ({ comments }) => {
                     <div className="w-full flex justify-center items-start">
                         <div className="w-24">
                             <img
-                                src={comment.user.avatar}
+                                src={comment.author.avatar}
                                 alt={comment.username}
                                 className="w-16 h-16 rounded-full"
                             />

@@ -38,7 +38,7 @@ const SinglePost = () => {
               <div className="w-full flex items-center">
                 <div className="mr-4">
                   <img
-                    src={post.avatar}
+                    src={post.author.avatar}
                     alt={post.username}
                     className="w-14 h-14 md:w-20 md:h-20 rounded-full"
                   />

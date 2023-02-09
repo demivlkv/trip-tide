@@ -14,12 +14,12 @@ export const QUERY_POSTS = gql`
                 createdAt
                 username
                 commentBody
-                user {
+                author {
                     _id
                     avatar
                 }
             }
-            user {
+            author {
                 _id
                 avatar
             }
@@ -40,13 +40,17 @@ export const QUERY_POST = gql`
             postText
             createdAt
             username
+            author {
+                _id
+                avatar
+            }
             commentCount
             comments {
               _id
               createdAt
               username
               commentBody
-              avatar {
+              author {
                 _id
                 avatar
               }
@@ -55,10 +59,6 @@ export const QUERY_POST = gql`
             likes {
                 _id
                 username
-            }
-            user {
-                _id
-                avatar
             }
         }
     }
@@ -92,7 +92,7 @@ export const QUERY_USER = gql`
                     createdAt
                     commentBody
                     username
-                    user {
+                    author {
                         _id
                         avatar
                     }
@@ -102,7 +102,7 @@ export const QUERY_USER = gql`
                     _id
                     username
                 }
-                user {
+                author {
                     _id
                     avatar
                 }
@@ -139,7 +139,7 @@ export const QUERY_ME = gql`
                     createdAt
                     commentBody
                     username
-                    user {
+                    author {
                         _id
                         avatar
                     }
@@ -150,7 +150,7 @@ export const QUERY_ME = gql`
                     createdAt
                     username
                 }
-                user {
+                author {
                     _id
                     avatar
                 }

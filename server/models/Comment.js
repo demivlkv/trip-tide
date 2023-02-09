@@ -16,10 +16,12 @@ const commentSchema = new Schema(
       default: Date.now,
       get: timestamp => moment(timestamp).fromNow()
     },
-    user: [
+    author: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true,
+        immutable: true
       }
     ]
   },
