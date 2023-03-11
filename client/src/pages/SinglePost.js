@@ -34,7 +34,7 @@ const SinglePost = () => {
       <Layout>
         <div className="w-full h-full min-h-screen">
           <div className="px-4 flex flex-col justify-center items-center">
-            <article className="max-w-screen-md mt-[130px] bg-gray-50 m-4 p-4 flex flex-col rounded-md shadow-lg">
+            <article className="w-full max-w-screen-md mt-[130px] bg-gray-50 m-4 p-4 flex flex-col rounded-md shadow-lg">
               <div className="w-full flex items-center">
                 <div className="mr-4">
                   <img

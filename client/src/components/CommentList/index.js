@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const CommentList = ({ comments }) => {
   return (
-    <div className="w-full flex flex-col justify-center items-center">
+    <div className="w-full max-w-screen-md flex flex-col justify-center items-center">
         <div className="mt-10">
             <h2 className="text-white">Comments</h2>
         </div>
-        <div className="mt-6">
+        <div className="w-full mt-6">
             {comments &&
             comments.map(comment => (
-                <article className="max-w-screen-md py-4">
+                <article className="py-4">
                     <div className="w-full flex justify-center items-start">
                         <div className="w-24">
                             <img

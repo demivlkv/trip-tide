@@ -13,9 +13,11 @@ const containerStyle = {
 
 const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
   const isDesktop = useMediaQuery('(min-width:600px)');
+  const libraries = ['places'];
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPS_API_KEY,
-    libraries: ['places']
+    libraries: libraries
   });
 
   if (!isLoaded) {
@@ -29,17 +31,11 @@ const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
         defaultCenter={coords}
         center={coords}
         zoom={14}
-        options={{ disableDefaultUI: true, zoomControl: true, styles : mapStyles }}
+        options={{ disableDefaultUI: true, styles : mapStyles }}
         onChange={(e) => {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
-        // onCenterChanged={(e) => {
-        //   setCoords({ lat: e.center.lat, lng: e.center.lng });
-        // }}
-        // onBoundsChanged={(e) => {
-        //   setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
-        // }}
         onChildClick={(child) => setChildClicked(child)}
       >
         {places?.map((place, i) => (
@@ -52,7 +48,7 @@ const Map = ({ coords, setCoords, setBounds, places, setChildClicked }) => {
             {!isDesktop 
               ? <MapPin width={18} className="text-teal-400" />
               : (
-                <div className="w-[100px] p-2 flex flex-col justify-center bg-white shadow-lg z-[1]">
+                <div className="w-[100px] p-2 flex flex-col justify-center bg-white shadow-lg z-[5]">
                   <h3>{place.name}</h3>
                   <img
                     className=""
