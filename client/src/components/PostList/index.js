@@ -23,7 +23,7 @@ const PostList = ({ post: { _id, username, postTitle, postText, createdAt, comme
         <div className="flex items-center">
           <div className="mr-4">
             <img
-              src={author.avatar || `https://images.unsplash.com/photo-1620750034602-1ad42e46b86b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80`}
+              src={author.avatar ? `${author.avatar}` : `https://images.unsplash.com/photo-1620750034602-1ad42e46b86b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80`}
               alt={username}
               className="w-14 h-14 rounded-full"
             />
